@@ -1,3 +1,2 @@
 # The Wizard of Esotyre
-
-CS491 Advanced Game Development Phase 2 Game
+Spring 2021 CS491 Adv. Game Dev Phase 2 Game, by The Developers
