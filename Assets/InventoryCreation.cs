@@ -31,6 +31,9 @@ public class InventoryCreation : MonoBehaviour
             //Change the child image of the button to image of the item
             Image imageToChange = button.transform.GetChild(0).GetComponent<Image>();
             imageToChange.sprite = Resources.Load<Sprite> (playerItem.getImageName());
+            //Change the child text of the button to the number of items
+            Text numItems = button.transform.GetChild(1).GetComponent<Text>();
+            numItems.text = ""+playerItem.getQuantity();
         }
     }
 }

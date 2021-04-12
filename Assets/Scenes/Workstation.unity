@@ -1294,7 +1294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Panel: {fileID: 1277338037}
-  sampleButtonPrefab: {fileID: 353861637747710289, guid: e111c0a08e548ef4fb877c96ba81a8e2, type: 3}
+  sampleButtonPrefab: {fileID: 471985961622036774, guid: bf970f9324be3e044a234dde7384d560, type: 3}
 --- !u!1 &1352435496
 GameObject:
   m_ObjectHideFlags: 0
