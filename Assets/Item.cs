@@ -7,14 +7,15 @@ public class Item : MonoBehaviour
     private string name;
     private string imageName;
     private int quantity;
-    private GameObject physical;
+    //private GameObject physical;
 
-    public Item(string nameIn, string imageNameIn, int quantityIn, string physicalIn)
+    //public Item(string nameIn, string imageNameIn, int quantityIn, string physicalIn)
+    public Item(string nameIn, string imageNameIn, int quantityIn)
     {
         setName(nameIn);
         setImageName(imageNameIn);
         setQuantity(quantityIn);
-        setPhysical(physicalIn);
+        //setPhysical(physicalIn);
     }
 
     // Start is called before the first frame update
@@ -32,16 +33,28 @@ public class Item : MonoBehaviour
     {
         this.name = nameIn;
     }
+
+    public string getName() {
+        return this.name;
+    }
     public void setImageName(string imageNameIn)
     {
         this.imageName = imageNameIn;
     }
+
+    public string getImageName(){
+        return this.imageName;
+}
     public void setQuantity(int quantityIn)
     {
         this.quantity = quantityIn;
     }
-    public void setPhysical(string physicalIn)
+
+    public int getQuantity() {
+        return this.quantity;
+    }
+   /* public void setPhysical(string physicalIn)
     {
         this.physical = physicalIn;
-    }
+    }*/
 }
