@@ -79,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (other.gameObject.CompareTag("CastleEntrance"))
         {
-            SceneManager.LoadSceneAsync("Tower Interior");
+            SceneManager.LoadSceneAsync("TowerInside");
         }
         else if (other.gameObject.CompareTag("InteriorDoor"))
         {
