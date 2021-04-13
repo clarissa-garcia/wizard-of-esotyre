@@ -8,6 +8,8 @@ TagManager:
   - Ground
   - InteriorDoor
   - Terrain
+  - Wood
+  - Stone
   layers:
   - Default
   - TransparentFX

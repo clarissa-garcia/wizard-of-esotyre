@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
+    
 
     public float speed = 12f;
     public float gravity = -9.81f;
@@ -17,7 +18,14 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 velocity;
     private bool isGrounded;
 
+    private Footsteps footsteps;
+    private GameObject standingOn; // object the player is on
 
+    private void Start()
+    {
+        standingOn = null;  
+        footsteps = GetComponent<Footsteps>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -30,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 velocity.y = -2f;
             }
+            
 
             float x = Input.GetAxis("Horizontal");
             float z = Input.GetAxis("Vertical");
@@ -41,6 +50,26 @@ public class PlayerMovement : MonoBehaviour
             velocity.y += gravity * Time.deltaTime;
 
             controller.Move(velocity * Time.deltaTime);
+
+            if (move.magnitude != 0)
+            {
+                if (SceneManager.GetActiveScene().name == "Esotyre")
+                {
+
+                    if (standingOn)
+                    {
+                        footsteps.StepObject(standingOn.tag);
+                    }
+                    else
+                    {
+                        footsteps.StepTerrain();
+                    }
+                }
+                else
+                {
+                    footsteps.StepObject("Stone");
+                }
+            }
         }
     }
 
@@ -56,5 +85,27 @@ public class PlayerMovement : MonoBehaviour
         {
             SceneManager.LoadSceneAsync("Esotyre");
         }
+        else
+        {
+            string tag = other.gameObject.tag;
+
+            switch (tag)
+            {
+                case "Wood":
+                case "Stone":
+                    standingOn = other.gameObject;
+                    break;
+                default:
+                    standingOn = null;
+                    break;
+            }
+        }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        standingOn = null; 
+    }
+
+
 }
