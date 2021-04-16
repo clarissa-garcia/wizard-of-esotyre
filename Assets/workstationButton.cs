@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class workstationButton : MonoBehaviour
 {
-    public GameObject playerobject;
+    private GameObject playerobject;
     public void ClickedItem()
     {
         //Check that the button clicked has an image (is a non-empty item)
@@ -15,8 +15,10 @@ public class workstationButton : MonoBehaviour
         if (imageToChange.sprite.name != null)
         {
             playerobject = GameObject.FindWithTag("Player");
-            Item_Map playerMap = playerobject.GetComponent<Item_Map>();
-            playerMap.itemDictionary.TryGetValue(imageToChange.sprite.name, out Item value);
+            Item_Map playerMap = playerobject.GetComponent<PlayerInventory>().playerMap;
+            //The map is not returning a value for some reason
+            Debug.Log(imageToChange.sprite.name);
+            playerMap.itemDictionary.TryGetValue("Sprites/"+imageToChange.sprite.name, out Item value);
             value.setQuantity(value.getQuantity() - 1);
 
             // Paint new value on the inventory screen

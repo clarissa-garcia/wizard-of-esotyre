@@ -20,9 +20,10 @@ public class PlayerInventory : MonoBehaviour
         // Please don't forget to do so each time an item is added to player's inventory
         playerInventory[0] = new Item("Green Potion", "Sprites/green_potion", 1);
         playerMap.AddMapItem("Sprites/green_potion", playerInventory[0]);
-        playerInventory[1] = new Item("Purple Potion", "Sprites/red_potion", 3);
+        playerInventory[1] = new Item("Red Potion", "Sprites/red_potion", 3);
         playerMap.AddMapItem("Sprites/red_potion", playerInventory[1]);
         playerInventory[2] = new Item("Branch", "Sprites/branch", 4);
         playerMap.AddMapItem("Sprites/branch", playerInventory[1]);
+
     }
 }
