@@ -5,22 +5,17 @@ using UnityEngine.UI;
 
 public class DrawPlayerInventory : MonoBehaviour
 {
-    public GameObject Panel;
+    public GameObject inventoryPanel;
     public GameObject sampleButtonPrefab;
     public GameObject playerObject;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        PlayerInventory inventory = playerObject.GetComponent<PlayerInventory>();
-        drawInventory(inventory.playerInventory);
-    }
 
     //drawInventory will take a list that represents the player's inventory
     // and draws it along with each item's number on inventory scrollbar
     public void drawInventory(Item[] playerInventory) {
         //Clear all buttons from the panel before generating
-        foreach (Transform child in Panel.transform)
+        foreach (Transform child in inventoryPanel.transform)
         {
             GameObject.Destroy(child.gameObject);
         }
@@ -28,7 +23,7 @@ public class DrawPlayerInventory : MonoBehaviour
         for (int i = 0; i < playerInventory.Length; i++) { 
             //Create a button for the item and set the parent
             GameObject button = Instantiate(sampleButtonPrefab);
-            button.transform.SetParent(Panel.transform);
+            button.transform.SetParent(inventoryPanel.transform);
             if ((playerInventory[i] != null) && (playerInventory[i].itemName != null))
             {
                 //Change the child image of the button to image of the item if playerItem is not empty
