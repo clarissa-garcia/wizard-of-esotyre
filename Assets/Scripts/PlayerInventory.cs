@@ -58,6 +58,11 @@ public class PlayerInventory : MonoBehaviour
                 //Check if the quantity is zero or less. If it is, you want to remove the item from the player's inventory
                 if (playerInventory[i].getQuantity() <= 0) {
                     playerInventory[i] = null;
+                    //Don't forget to shift remaining items to the left a space
+                    while (i < (playerInventory.Length - 1)) {
+                        playerInventory[i] = playerInventory[i + 1];
+                        i++;
+                    }
                     inventoryPanel.GetComponent<DrawPlayerInventory>().drawInventory(playerInventory);
                     return;
                 }
