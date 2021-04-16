@@ -24,6 +24,27 @@ public class PlayerInventory : MonoBehaviour
         playerMap.AddMapItem("Sprites/red_potion", playerInventory[1]);
         playerInventory[2] = new Item("Branch", "Sprites/branch", 4);
         playerMap.AddMapItem("Sprites/branch", playerInventory[1]);
+    }
 
+    public void addItem(Item pickedUpItem) {
+        //First, find out if player already has item or not
+        for (int i = 0; i < playerInventory.Length; i++) {
+            if (playerInventory[i].itemName == pickedUpItem.itemName)
+            {
+                playerInventory[i].setQuantity(playerInventory[i].getQuantity() + pickedUpItem.getQuantity());
+                //call drawInventory
+                return;
+            }
+        }
+        //Player doesn't have item, so this is a new item. Add accordingly
+        for (int i = 0; i < playerInventory.Length; i++)
+        {
+            if (playerInventory[i] == null) {
+                playerInventory[i] = pickedUpItem;
+                //call drawInventory
+                return;
+            }
+        }
+        //Else, the player has no more empty spaces in inventory. Do not add item
     }
 }

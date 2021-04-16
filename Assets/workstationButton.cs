@@ -20,7 +20,6 @@ public class workstationButton : MonoBehaviour
             Debug.Log(imageToChange.sprite.name);
             playerMap.itemDictionary.TryGetValue("Sprites/"+imageToChange.sprite.name, out Item value);
             value.setQuantity(value.getQuantity() - 1);
-
             // Paint new value on the inventory screen
             Text numItems = transform.GetChild(1).GetComponent<Text>();
             numItems.text = "" + value.getQuantity();
