@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    private string name;
+    public string itemName;
     private string imageName;
     private int quantity;
     //private GameObject physical;
@@ -31,11 +31,11 @@ public class Item : MonoBehaviour
     }
     public void setName(string nameIn)
     {
-        this.name = nameIn;
+        this.itemName = nameIn;
     }
 
     public string getName() {
-        return this.name;
+        return this.itemName;
     }
     public void setImageName(string imageNameIn)
     {
