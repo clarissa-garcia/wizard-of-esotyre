@@ -19,6 +19,12 @@ public class DrawPlayerInventory : MonoBehaviour
     //drawInventory will take a list that represents the player's inventory
     // and draws it along with each item's number on inventory scrollbar
     public void drawInventory(Item[] playerInventory) {
+        //Clear all buttons from the panel before generating
+        foreach (Transform child in Panel.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+
         for (int i = 0; i < playerInventory.Length; i++) { 
             //Create a button for the item and set the parent
             GameObject button = Instantiate(sampleButtonPrefab);

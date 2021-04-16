@@ -12,17 +12,17 @@ public class workstationButton : MonoBehaviour
         // Then use the image name to look up the player's inventory item to update the quantity
         // in code and on the screen
         Image imageToChange = transform.GetChild(0).GetComponent<Image>();
-        if (imageToChange.sprite.name != null)
+        if (imageToChange.sprite != null)
         {
             playerobject = GameObject.FindWithTag("Player");
             Item_Map playerMap = playerobject.GetComponent<PlayerInventory>().playerMap;
             //The map is not returning a value for some reason
             Debug.Log(imageToChange.sprite.name);
             playerMap.itemDictionary.TryGetValue("Sprites/"+imageToChange.sprite.name, out Item value);
-            value.setQuantity(value.getQuantity() - 1);
-            // Paint new value on the inventory screen
-            Text numItems = transform.GetChild(1).GetComponent<Text>();
-            numItems.text = "" + value.getQuantity();
+            //Once you get value, update it in the player's inventory
+            playerobject.GetComponent<PlayerInventory>().removeItem(value, 1);
+            //sorry for long line, there was no other way to access inventory panel from a button call
+            playerobject.GetComponent<PlayerInventory>().inventoryPanel.GetComponent<DrawPlayerInventory>().drawInventory(playerobject.GetComponent<PlayerInventory>().playerInventory);
         }
     }
 }

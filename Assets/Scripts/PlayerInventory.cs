@@ -24,7 +24,7 @@ public class PlayerInventory : MonoBehaviour
         playerInventory[1] = new Item("Red Potion", "Sprites/red_potion", 3);
         playerMap.AddMapItem("Sprites/red_potion", playerInventory[1]);
         playerInventory[2] = new Item("Branch", "Sprites/branch", 4);
-        playerMap.AddMapItem("Sprites/branch", playerInventory[1]);
+        playerMap.AddMapItem("Sprites/branch", playerInventory[2]);
     }
 
     public void addItem(Item pickedUpItem) {
@@ -52,7 +52,7 @@ public class PlayerInventory : MonoBehaviour
         //First, find item player has and subtract from quantity
         for (int i = 0; i < playerInventory.Length; i++)
         {
-            if (playerInventory[i].itemName == droppedItem.itemName)
+            if (playerInventory[i]!= null && playerInventory[i].itemName == droppedItem.itemName)
             {
                 playerInventory[i].setQuantity(playerInventory[i].getQuantity() - quantity);
                 //Check if the quantity is zero or less. If it is, you want to remove the item from the player's inventory
