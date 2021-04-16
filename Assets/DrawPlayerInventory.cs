@@ -3,21 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventoryCreation : MonoBehaviour
+public class DrawPlayerInventory : MonoBehaviour
 {
-    private string beginningImageString = "Sprites/";
     public GameObject Panel;
     public GameObject sampleButtonPrefab;
-    private int inventoryMax = 7;
+    public GameObject playerObject;
+
     // Start is called before the first frame update
     void Start()
     {
-        //Create a sample inventory a player might have
-        Item[] playerInventory = new Item[inventoryMax]; 
-        playerInventory[0] = new Item("Green Potion", beginningImageString + "green_potion", 1);
-        playerInventory[1] = new Item("Purple Potion", beginningImageString + "red_potion", 3);
-        playerInventory[2] = new Item("Branch", beginningImageString + "branch", 4);
-        drawInventory(playerInventory);
+        PlayerInventory inventory = playerObject.GetComponent<PlayerInventory>();
+        drawInventory(inventory.playerInventory);
     }
 
     //drawInventory will take a list that represents the player's inventory
