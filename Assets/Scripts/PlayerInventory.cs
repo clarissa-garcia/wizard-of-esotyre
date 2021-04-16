@@ -8,6 +8,7 @@ public class PlayerInventory : MonoBehaviour
     public GameObject playerobject;
     public Item[] playerInventory;
     public Item_Map playerMap = new Item_Map();
+    public GameObject inventoryPanel;
 
     // Start is called before the first frame update
     void Start()
@@ -27,12 +28,12 @@ public class PlayerInventory : MonoBehaviour
     }
 
     public void addItem(Item pickedUpItem) {
-        //First, find out if player already has item or not
+        //First, find out if player already has item or not to just add on to quantity
         for (int i = 0; i < playerInventory.Length; i++) {
             if (playerInventory[i].itemName == pickedUpItem.itemName)
             {
                 playerInventory[i].setQuantity(playerInventory[i].getQuantity() + pickedUpItem.getQuantity());
-                //call drawInventory
+                inventoryPanel.GetComponent<DrawPlayerInventory>().drawInventory(playerInventory);
                 return;
             }
         }
@@ -41,10 +42,26 @@ public class PlayerInventory : MonoBehaviour
         {
             if (playerInventory[i] == null) {
                 playerInventory[i] = pickedUpItem;
-                //call drawInventory
-                return;
+                inventoryPanel.GetComponent<DrawPlayerInventory>().drawInventory(playerInventory);
             }
         }
         //Else, the player has no more empty spaces in inventory. Do not add item
+    }
+
+    public void removeItem(Item droppedItem, int quantity) {
+        //First, find item player has and subtract from quantity
+        for (int i = 0; i < playerInventory.Length; i++)
+        {
+            if (playerInventory[i].itemName == droppedItem.itemName)
+            {
+                playerInventory[i].setQuantity(playerInventory[i].getQuantity() - quantity);
+                //Check if the quantity is zero or less. If it is, you want to remove the item from the player's inventory
+                if (playerInventory[i].getQuantity() <= 0) {
+                    playerInventory[i] = null;
+                    inventoryPanel.GetComponent<DrawPlayerInventory>().drawInventory(playerInventory);
+                    return;
+                }
+            }
+        }
     }
 }

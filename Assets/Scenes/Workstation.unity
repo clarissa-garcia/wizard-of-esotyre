@@ -1371,6 +1371,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerobject: {fileID: 1364585262}
+  inventoryPanel: {fileID: 1277338037}
 --- !u!4 &1364585264
 Transform:
   m_ObjectHideFlags: 0
