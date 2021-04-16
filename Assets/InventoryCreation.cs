@@ -23,11 +23,11 @@ public class InventoryCreation : MonoBehaviour
     //drawInventory will take a list that represents the player's inventory
     // and draws it along with each item's number on inventory scrollbar
     public void drawInventory(Item[] playerInventory) {
-        foreach (Item playerItem in playerInventory) {
+        for (int i = 0; i < playerInventory.Length; i++) { 
             //Create a button for the item and set the parent
             GameObject button = Instantiate(sampleButtonPrefab);
             button.transform.SetParent(Panel.transform);
-            if (!(playerItem.itemName == null))
+            if ((playerInventory[i] != null) && (playerInventory[i].itemName != null))
             {
                 //Change the child image of the button to image of the item if playerItem is not empty
                 Image imageToChange = button.transform.GetChild(0).GetComponent<Image>();
@@ -36,10 +36,10 @@ public class InventoryCreation : MonoBehaviour
                 var tempColor = imageToChange.color;
                 tempColor.a = 1f;
                 imageToChange.color = tempColor;
-                imageToChange.sprite = Resources.Load<Sprite>(playerItem.getImageName());
+                imageToChange.sprite = Resources.Load<Sprite>(playerInventory[i].getImageName());
                 //Change the child text of the button to the number of items
                 Text numItems = button.transform.GetChild(1).GetComponent<Text>();
-                numItems.text = "" + playerItem.getQuantity();
+                numItems.text = "" + playerInventory[i].getQuantity();
 
             }      
         }
