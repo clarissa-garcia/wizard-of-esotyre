@@ -5,72 +5,108 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
-
+    [Header("World References")]
     public CharacterController controller;
-    public Transform groundCheck;
+    public Transform sceneGroundTrans;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
     
-
+    [Header("Movement Settings")]
     public float speed = 12f;
+    public float runSpeed = 8f;
+    public float jumpHeight = 1.0f; 
     public float gravity = -9.81f;
 
     private Vector3 velocity;
-    private bool isGrounded;
+    private bool airborn = false;
 
-    private Footsteps footsteps;
-    private GameObject standingOn; // object the player is on
+    private MovementAudio movementAudio;
+    private MovementAudio.MovementType movementType;
+    private MovementAudio.TerrainType terrainStandingOn;
 
     private void Start()
     {
-        standingOn = null;  
-        footsteps = GetComponent<Footsteps>();
+        terrainStandingOn = MovementAudio.TerrainType.NULL;
+        movementAudio = GetComponent<MovementAudio>();
+        controller = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (groundCheck != null)
+        bool groundedPlayer = controller.isGrounded;
+        float tempSpeed = speed;
+
+        if (airborn)
         {
-            isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-
-            if (isGrounded && velocity.y < 0)
+            if (groundedPlayer)
             {
-                velocity.y = -2f;
-            }
-            
-
-            float x = Input.GetAxis("Horizontal");
-            float z = Input.GetAxis("Vertical");
-
-            Vector3 move = transform.right * x + transform.forward * z;
-
-            controller.Move(move * speed * Time.deltaTime);
-
-            velocity.y += gravity * Time.deltaTime;
-
-            controller.Move(velocity * Time.deltaTime);
-
-            if (move.magnitude != 0)
-            {
-                if (SceneManager.GetActiveScene().name == "Esotyre")
-                {
-
-                    if (standingOn)
-                    {
-                        footsteps.StepObject(standingOn.tag);
-                    }
-                    else
-                    {
-                        footsteps.StepTerrain();
-                    }
-                }
-                else
-                {
-                    footsteps.StepObject("Stone");
-                }
+                airborn = false;
+                PlayMovementSound(MovementAudio.MovementType.JUMP_LAND);
             }
         }
+        else
+            movementType = MovementAudio.MovementType.WALKING;
+
+
+
+        // ignore gravity during calculations
+        if (groundedPlayer && velocity.y < 0)
+            velocity.y = 0f;
+
+        // Run movement mod
+        if (groundedPlayer && Input.GetButton("Run"))
+        {
+            tempSpeed = runSpeed;
+            movementType = MovementAudio.MovementType.RUNNING; 
+        }
+            
+
+        // Normal Movement
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
+        Vector3 move = transform.right * x + transform.forward * z;
+        controller.Move(move * tempSpeed * Time.deltaTime);
+
+        // Only do these while moving on x,z plane
+        if (move != Vector3.zero && groundedPlayer)
+                PlayMovementSound(movementType);
+
+        // Jump
+        if (Input.GetButtonDown("Jump") && groundedPlayer)
+        {
+            velocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravity);
+            PlayMovementSound(MovementAudio.MovementType.JUMP_START);
+            airborn = true; 
+        }
+            
+
+        velocity.y += gravity * Time.deltaTime;
+        controller.Move(velocity * Time.deltaTime);            
+    }
+
+    /// <summary>
+    /// Plays footstep sounds depending on what player is standing on
+    /// </summary>
+    private void PlayMovementSound(MovementAudio.MovementType type)
+    {
+        // Player is in Esotyre (Outside)
+        if (SceneManager.GetActiveScene().name == "Esotyre")
+        {
+            // Player on object not terrain
+            if (terrainStandingOn != MovementAudio.TerrainType.NULL)
+            {
+                movementAudio.Play(terrainStandingOn, movementType);
+            }
+            // Player on Terrain
+            else
+            {
+                movementAudio.Play(movementType);
+            }
+        }
+        // Player is inside, only sound is stone
+        else
+            movementAudio.Play(MovementAudio.TerrainType.STONE, movementType);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -92,11 +128,13 @@ public class PlayerMovement : MonoBehaviour
             switch (tag)
             {
                 case "Wood":
+                    terrainStandingOn = MovementAudio.TerrainType.WOOD;
+                    break; 
                 case "Stone":
-                    standingOn = other.gameObject;
+                    terrainStandingOn = MovementAudio.TerrainType.STONE;
                     break;
                 default:
-                    standingOn = null;
+                    terrainStandingOn = MovementAudio.TerrainType.NULL;
                     break;
             }
         }
@@ -104,7 +142,20 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        standingOn = null; 
+        terrainStandingOn = MovementAudio.TerrainType.NULL;
+    }
+
+    /// <summary>
+    /// Checks if player is grounded relative to the current scene's ground transform. 
+    /// </summary>
+    /// <returns> Bool: If the player is grounded </returns>
+    private bool IsGrounded()
+    {
+        if (sceneGroundTrans)
+        {
+            return Physics.CheckSphere(sceneGroundTrans.position, groundDistance, groundMask);
+        }
+        else return false; 
     }
 
 
