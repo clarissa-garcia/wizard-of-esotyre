@@ -6,9 +6,8 @@ using UnityEngine;
 
 public class DontDestroy : MonoBehaviour
 {
-    public Canvas inventoryCanvas;
     void Awake()
     {
-        DontDestroyOnLoad(inventoryCanvas);
+        DontDestroyOnLoad(this);
     }
 }
