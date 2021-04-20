@@ -274,8 +274,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1809684180}
         m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 5
+        m_MethodName: clickButton
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1130,6 +1130,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneChanger
       objectReference: {fileID: 0}
+    - target: {fileID: 8317120738914306885, guid: bd3c3879cdaeb6d4faebc24e3c8476fa, type: 3}
+      propertyPath: nextScene
+      value: TowerInside
+      objectReference: {fileID: 0}
+    - target: {fileID: 8317120738914306885, guid: bd3c3879cdaeb6d4faebc24e3c8476fa, type: 3}
+      propertyPath: playerInventoryCanvas
+      value: 
+      objectReference: {fileID: 1974203830}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd3c3879cdaeb6d4faebc24e3c8476fa, type: 3}
 --- !u!1001 &1023678784
@@ -1831,6 +1839,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 33431a5398cf745448ac3f44bc55f0c4, type: 3}
   m_PrefabInstance: {fileID: 1963048155}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1974203830 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1109084039130128238, guid: e41e77de68d36b844acd19bc0e4faef1, type: 3}
+  m_PrefabInstance: {fileID: 1109084039488465624}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1996007604
 PrefabInstance:
