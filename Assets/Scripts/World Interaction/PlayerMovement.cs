@@ -144,19 +144,4 @@ public class PlayerMovement : MonoBehaviour
     {
         terrainStandingOn = MovementAudio.TerrainType.NULL;
     }
-
-    /// <summary>
-    /// Checks if player is grounded relative to the current scene's ground transform. 
-    /// </summary>
-    /// <returns> Bool: If the player is grounded </returns>
-    private bool IsGrounded()
-    {
-        if (sceneGroundTrans)
-        {
-            return Physics.CheckSphere(sceneGroundTrans.position, groundDistance, groundMask);
-        }
-        else return false; 
-    }
-
-
 }
