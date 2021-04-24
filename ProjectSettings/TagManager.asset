@@ -10,11 +10,12 @@ TagManager:
   - Terrain
   - Wood
   - Stone
+  - Interactable
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Interactable
   - Water
   - UI
   - 
