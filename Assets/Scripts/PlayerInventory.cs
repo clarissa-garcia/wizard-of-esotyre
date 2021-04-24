@@ -34,7 +34,7 @@ public class PlayerInventory : MonoBehaviour
     public void addItem(Item pickedUpItem) {
         //First, find out if player already has item or not to just add on to quantity
         for (int i = 0; i < playerInventory.Length; i++) {
-            if (playerInventory[i].itemName == pickedUpItem.itemName)
+            if (playerInventory[i]!= null && playerInventory[i].itemName == pickedUpItem.itemName)
             {
                 playerInventory[i].setQuantity(playerInventory[i].getQuantity() + pickedUpItem.getQuantity());
                 inventoryPanel.GetComponent<DrawPlayerInventory>().drawInventory(playerInventory);
@@ -47,6 +47,7 @@ public class PlayerInventory : MonoBehaviour
             if (playerInventory[i] == null) {
                 playerInventory[i] = pickedUpItem;
                 inventoryPanel.GetComponent<DrawPlayerInventory>().drawInventory(playerInventory);
+                return;
             }
         }
         //Else, the player has no more empty spaces in inventory. Do not add item
