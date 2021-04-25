@@ -33,8 +33,6 @@ public class workstationButton : MonoBehaviour
                 // Add item deducted to the cauldron
                 cauldronObject = GameObject.FindWithTag("Cauldron");
                 cauldronObject.GetComponent<CauldronInventory>().addItem(value);
-
-
                 //sorry for long line, there was no other way to access inventory panel from a button call
                 playerobject.GetComponent<PlayerInventory>().inventoryPanel.GetComponent<DrawPlayerInventory>().drawInventory(playerobject.GetComponent<PlayerInventory>().playerInventory);
             }
