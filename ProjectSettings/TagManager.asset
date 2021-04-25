@@ -10,6 +10,7 @@ TagManager:
   - Terrain
   - Wood
   - Stone
+  - Cauldron
   layers:
   - Default
   - TransparentFX
