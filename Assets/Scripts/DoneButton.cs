@@ -20,8 +20,8 @@ public class DoneButton : MonoBehaviour
         //After verifying player's recipe, add new item to inventory
         //Example of created item added: 
 
-        //Item tobeAdded = new Item("Candle", "Sprites/candle", 1);
-        //playerObject.GetComponent<PlayerInventory>().addItem(tobeAdded);
-        //playerObject.GetComponent<PlayerInventory>().playerMap.AddMapItem("Sprites/candle", tobeAdded);
+        Item tobeAdded = new Item("Candle", "Sprites/candle", 1);
+        playerObject.GetComponent<PlayerInventory>().addItem(tobeAdded);
+        playerObject.GetComponent<PlayerInventory>().playerMap.AddMapItem("Sprites/candle", tobeAdded);
     }
 }

@@ -902,7 +902,6 @@ GameObject:
   m_Component:
   - component: {fileID: 201919653}
   - component: {fileID: 201919655}
-  - component: {fileID: 201919654}
   m_Layer: 0
   m_Name: Doors
   m_TagString: Untagged
@@ -926,20 +925,6 @@ Transform:
   m_Father: {fileID: 1089940881}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &201919654
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 201919652}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f67cef2d1b9df9648851350a1d5c264e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Mesh1: {fileID: 0}
-  Mesh2: {fileID: 0}
 --- !u!33 &201919655
 MeshFilter:
   m_ObjectHideFlags: 0

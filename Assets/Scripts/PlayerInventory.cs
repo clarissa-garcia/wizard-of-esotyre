@@ -26,7 +26,8 @@ public class PlayerInventory : MonoBehaviour
         playerInventory[2] = new Item("Branch", "Sprites/branch", 4);
         playerMap.AddMapItem("Sprites/branch", playerInventory[2]);
         DrawPlayerInventory quickdraw = inventoryPanel.GetComponent<DrawPlayerInventory>();
-        quickdraw.drawInventory(playerInventory);
+        //if(quickdraw)
+            quickdraw.drawInventory(playerInventory);
 
         DontDestroyOnLoad(this);
     }

@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 1109084038483757934}
   - component: {fileID: 1109084038483757935}
   - component: {fileID: 1109084038483757920}
-  - component: {fileID: 1109084038483757921}
+  - component: {fileID: 1277338039}
   m_Layer: 0
-  m_Name: Entire Panel
+  m_Name: Inventory Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,7 +78,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 1
   m_VerticalFit: 0
---- !u!114 &1109084038483757921
+--- !u!114 &1277338039
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -87,7 +87,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1109084038483757933}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8581c0f07a1c7804580eaa623fd4f93f, type: 3}
+  m_Script: {fileID: 11500000, guid: 4de8148e1ffdaae4fb85b8dcdc04186b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryPanel: {fileID: 1109084038483757933}
@@ -585,7 +585,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1109084039112241529}
   m_HandleRect: {fileID: 1109084039112241528}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -728,7 +728,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1109084040221797538}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 76, y: 114, z: 2.7141051}
+  m_LocalPosition: {x: 76, y: 33, z: 2.7141051}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1109084039934504484}

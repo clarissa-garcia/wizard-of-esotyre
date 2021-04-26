@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1463,6 +1463,21 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1109084038483757933, guid: e41e77de68d36b844acd19bc0e4faef1, type: 3}
   m_PrefabInstance: {fileID: 1109084039488465624}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1277338039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1277338037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4de8148e1ffdaae4fb85b8dcdc04186b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryPanel: {fileID: 1277338037}
+  sampleButtonPrefab: {fileID: 7415191869706413680, guid: b8889cba60974214ea732b66aaca4f9c, type: 3}
+  playerObject: {fileID: 1364585262}
 --- !u!1 &1295857845
 GameObject:
   m_ObjectHideFlags: 0
@@ -2208,6 +2223,10 @@ PrefabInstance:
       propertyPath: playerObject
       value: 
       objectReference: {fileID: 1364585262}
+    - target: {fileID: 1109084038483757933, guid: e41e77de68d36b844acd19bc0e4faef1, type: 3}
+      propertyPath: m_Name
+      value: Inventory Panel
+      objectReference: {fileID: 0}
     - target: {fileID: 1109084038483757934, guid: e41e77de68d36b844acd19bc0e4faef1, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
@@ -2312,5 +2331,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 33
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1109084038483757921, guid: e41e77de68d36b844acd19bc0e4faef1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e41e77de68d36b844acd19bc0e4faef1, type: 3}

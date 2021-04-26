@@ -6,6 +6,12 @@ public class CauldronInventory : MonoBehaviour
 {
     public Item[] cauldronInventory = new Item[7];
 
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
     // Update is called once per frame
     public void addItem(Item newItem) {
         for (int i = 0; i < cauldronInventory.Length; i++) {
