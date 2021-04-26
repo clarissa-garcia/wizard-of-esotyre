@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Esotyre.unity
-    guid: a318589a54824694ca1e574ca704ed50
+    path: Assets/Scenes/Workstation.unity
+    guid: 1399c3e7b385efa42b47f346307def9d
   - enabled: 1
     path: Assets/Scenes/TowerInside.unity
     guid: 6b7678630ac6b4a4e83b7cb0a0f07c92

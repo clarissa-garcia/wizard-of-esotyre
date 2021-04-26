@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item : MonoBehaviour
+public class Item
 {
-    private string name;
+    public string itemName;
     private string imageName;
     private int quantity;
     //private GameObject physical;
@@ -18,24 +18,13 @@ public class Item : MonoBehaviour
         //setPhysical(physicalIn);
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     public void setName(string nameIn)
     {
-        this.name = nameIn;
+        this.itemName = nameIn;
     }
 
     public string getName() {
-        return this.name;
+        return this.itemName;
     }
     public void setImageName(string imageNameIn)
     {
