@@ -11,7 +11,7 @@ public class PlayerInventory : MonoBehaviour
     public GameObject inventoryPanel;
 
     // Start is called before the first frame update
-    void Start()
+    /*void Start()
     {
         //Create a sample inventory a player might have
         playerInventory = new Item[inventoryMax];
@@ -74,5 +74,5 @@ public class PlayerInventory : MonoBehaviour
                 }
             }
         }
-    }
+    }*/
 }

@@ -12,6 +12,7 @@ TagManager:
   - Stone
   - Cauldron
   - FPCamera
+  - PlayerHUD
   layers:
   - Default
   - TransparentFX

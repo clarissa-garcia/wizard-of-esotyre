@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class CauldronInventory : MonoBehaviour
 {
-    public Item[] cauldronInventory = new Item[7];
+    
 
-    private void Start()
+    /*private void Start()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -32,5 +32,5 @@ public class CauldronInventory : MonoBehaviour
             }
         }
         Debug.Log("End of inventory");
-    }
+    }*/
 }

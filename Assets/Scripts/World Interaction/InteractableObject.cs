@@ -6,7 +6,7 @@ using TMPro;
 public class InteractableObject : MonoBehaviour
 {
 
-    public GameObject floatingTextObject;
+    
     public bool showFloatingText = true;
     [TextArea(5, 10)]
     public string floatingText;
@@ -14,11 +14,11 @@ public class InteractableObject : MonoBehaviour
     public bool showPopUp = false;
     [TextArea(5, 10)]
     public string popUpText;
-    
 
+    private GameObject floatingTextObject;
     private cakeslice.Outline outln; // outline attached to object
     private GameObject mainCamera = null;
-    private MouseLook playerHUD;
+    private HUD playerHUD;
     
 
     private void Start()
@@ -27,21 +27,33 @@ public class InteractableObject : MonoBehaviour
         outln = gameObject.AddComponent<cakeslice.Outline>();
         mainCamera = null;
         mainCamera = GameObject.FindWithTag("FPCamera");
-        if(mainCamera) 
-            playerHUD = mainCamera.GetComponent<MouseLook>();
+
+        playerHUD = GameObject.FindWithTag("PlayerHUD").GetComponent<HUD>();
         outln.enabled = false;
+
         if(popUpText == "")
             popUpText = "Pop up text here";
         if (floatingText == "")
             floatingText = "Float text here";
-        if (showFloatingText)
-            floatingTextObject.GetComponent<TextMeshPro>().text = floatingText;
+        
+
     }
+
+    /*private void Awake()
+    {
+        if (showFloatingText)
+        {
+            floatingTextObject = new GameObject();
+            floatingTextObject.transform.parent = gameObject.transform;
+            floatingTextObject.transform.localPosition = new Vector3(0, 1, 0);
+            floatingTextObject.AddComponent<TextMeshPro>().text = floatingText;
+        }
+    }*/
 
     void Update()
     {
-        if (showFloatingText)
-            floatingTextObject.transform.rotation = Quaternion.LookRotation(floatingTextObject.transform.position - mainCamera.transform.position);
+        /*if (showFloatingText)
+            floatingTextObject.transform.rotation = Quaternion.LookRotation(floatingTextObject.transform.position - mainCamera.transform.position);*/
 
         Interact();
     }
@@ -50,15 +62,15 @@ public class InteractableObject : MonoBehaviour
     {
         Debug.Log("Mouse Entered");
         outln.enabled = true;
-        /*if (showPopUp)
-            playerHUD.ShowPopUp(popUpText);*/
+        if (showPopUp)
+            playerHUD.ShowPopUp(popUpText);
     }
 
     private void OnMouseExit()
     {
         outln.enabled = false;
-        /*if (showPopUp)
-            playerHUD.HidePopUp();*/
+        if (showPopUp)
+            playerHUD.HidePopUp();
     }
 
     virtual protected void Interact()

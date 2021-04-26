@@ -9,8 +9,6 @@ public class MouseLook : MonoBehaviour
     public float mouseSensitivity = 100f;
     public Transform playerBody;
     public float raycastDist = 5; // max distance of the raycast 
-    public GameObject popUp;
-    public TextMeshProUGUI popUpText;
 
     public List<Sprite> buttonIcons = new List<Sprite>(); 
 
@@ -36,19 +34,6 @@ public class MouseLook : MonoBehaviour
 
         transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
         playerBody.Rotate(Vector3.up * mouseX);
-
-    }
-    
-
-    public void ShowPopUp(string text)
-    {
-        popUp.SetActive(true);
-        popUpText.text = text;
-    }
-
-    public void HidePopUp()
-    {
-        popUp.SetActive(false);
     }
 }
 

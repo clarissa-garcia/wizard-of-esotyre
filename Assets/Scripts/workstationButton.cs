@@ -8,7 +8,7 @@ public class workstationButton : MonoBehaviour
 {
     private GameObject playerobject;
     private GameObject cauldronObject;
-    public void ClickedItem()
+    /*public void ClickedItem()
     {
         //Check that the button clicked has an image (is a non-empty item)
         // Then use the image name to look up the player's inventory item to update the quantity
@@ -29,7 +29,7 @@ public class workstationButton : MonoBehaviour
                 Debug.Log(imageToChange.sprite.name);
                 playerMap.itemDictionary.TryGetValue("Sprites/" + imageToChange.sprite.name, out Item value);
                 //Once you get value, update it in the player's inventory
-                playerobject.GetComponent<PlayerInventory>().removeItem(value, 1);
+                Inventory.RemoveItem(value);
                 // Add item deducted to the cauldron
                 cauldronObject = GameObject.FindWithTag("Cauldron");
                 cauldronObject.GetComponent<CauldronInventory>().addItem(value);
@@ -37,5 +37,5 @@ public class workstationButton : MonoBehaviour
                 playerobject.GetComponent<PlayerInventory>().inventoryPanel.GetComponent<DrawPlayerInventory>().drawInventory(playerobject.GetComponent<PlayerInventory>().playerInventory);
             }
         }
-    }
+    }*/
 }

@@ -8,7 +8,7 @@ public class DoneButton : MonoBehaviour
     private GameObject cauldronObject;
 
 
-    public void OnFinishedRecipe() {
+    /*public void OnFinishedRecipe() {
         //Fetch the array of items given to the cauldron
         cauldronObject = GameObject.FindWithTag("Cauldron");
         Item[] cauldronArray = cauldronObject.GetComponent<CauldronInventory>().cauldronInventory;
@@ -19,9 +19,6 @@ public class DoneButton : MonoBehaviour
         //Add in logic checks from workstation (numbers of stirs, direction, etc)
         //After verifying player's recipe, add new item to inventory
         //Example of created item added: 
-
-        Item tobeAdded = new Item("Candle", "Sprites/candle", 1);
-        playerObject.GetComponent<PlayerInventory>().addItem(tobeAdded);
-        playerObject.GetComponent<PlayerInventory>().playerMap.AddMapItem("Sprites/candle", tobeAdded);
-    }
+        Inventory.AddItem(new Item("Candle", "Sprites/candle"));
+    }*/
 }

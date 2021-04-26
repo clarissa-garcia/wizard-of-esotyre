@@ -13,7 +13,7 @@ public class DrawPlayerInventory : MonoBehaviour
 
     //drawInventory will take a list that represents the player's inventory
     // and draws it along with each item's number on inventory scrollbar
-    public void drawInventory(Item[] playerInventory) {
+    /*public void drawInventory(Item[] playerInventory) {
         //Clear all buttons from the panel before generating
         foreach (Transform child in inventoryPanel.transform)
         {
@@ -33,12 +33,12 @@ public class DrawPlayerInventory : MonoBehaviour
                 var tempColor = imageToChange.color;
                 tempColor.a = 1f;
                 imageToChange.color = tempColor;
-                imageToChange.sprite = Resources.Load<Sprite>(playerInventory[i].getImageName());
+                imageToChange.sprite = Resources.Load<Sprite>(playerInventory[i].GetImageName());
                 //Change the child text of the button to the number of items
                 Text numItems = button.transform.GetChild(1).GetComponent<Text>();
                 numItems.text = "" + playerInventory[i].getQuantity();
 
             }      
         }
-    }
+    }*/
 }

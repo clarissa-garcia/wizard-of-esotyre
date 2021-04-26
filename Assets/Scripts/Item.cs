@@ -4,46 +4,33 @@ using UnityEngine;
 
 public class Item
 {
-    public string itemName;
-    private string imageName;
-    private int quantity;
+    public string name;
+    private Sprite sprite;
     //private GameObject physical;
 
     //public Item(string nameIn, string imageNameIn, int quantityIn, string physicalIn)
-    public Item(string nameIn, string imageNameIn, int quantityIn)
+    public Item(string nameIn, Sprite imageNameIn)
     {
-        setName(nameIn);
-        setImageName(imageNameIn);
-        setQuantity(quantityIn);
-        //setPhysical(physicalIn);
+        this.name = nameIn;
+        this.sprite = imageNameIn;
     }
 
-    public void setName(string nameIn)
+    public void SetName(string nameIn)
     {
-        this.itemName = nameIn;
+        this.name = nameIn;
     }
 
-    public string getName() {
-        return this.itemName;
+    public string GetName() {
+        return this.name;
     }
-    public void setImageName(string imageNameIn)
+    public void SetSprite(Sprite imageNameIn)
     {
-        this.imageName = imageNameIn;
+        this.sprite = imageNameIn;
     }
 
-    public string getImageName(){
-        return this.imageName;
-}
-    public void setQuantity(int quantityIn)
-    {
-        this.quantity = quantityIn;
+    public Sprite GetSprite(){
+        return this.sprite;
     }
 
-    public int getQuantity() {
-        return this.quantity;
-    }
-   /* public void setPhysical(string physicalIn)
-    {
-        this.physical = physicalIn;
-    }*/
+
 }
