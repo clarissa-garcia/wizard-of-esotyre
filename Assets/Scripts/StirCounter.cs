@@ -6,10 +6,12 @@ public class StirCounter : MonoBehaviour
 {
 	private int numStirs;
 	private bool isClockwise;
+	StirTextUpdate stirText;
 	
     // Start is called before the first frame update
     void Start()
     {
+		stirText = GetComponent<StirTextUpdate>();
         numStirs = 0;
 		isClockwise = true;
     }
@@ -43,6 +45,7 @@ public class StirCounter : MonoBehaviour
 		*/
 		if(numStirs <= 99){
 			numStirs++;
+			stirText.updateCount(numStirs.ToString());
 		}
 	}
 	
@@ -50,6 +53,7 @@ public class StirCounter : MonoBehaviour
 		if(numStirs >= 1){
 			//can only update if # won't go below 0
 			numStirs--;
+			stirText.updateCount(numStirs.ToString());
 		}
 	}
 	
