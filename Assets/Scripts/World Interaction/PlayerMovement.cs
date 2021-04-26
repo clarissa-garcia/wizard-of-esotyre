@@ -113,30 +113,20 @@ public class PlayerMovement : MonoBehaviour
     {
         Debug.Log("Player entered triggered with:" + other);
 
-        if (other.gameObject.CompareTag("CastleEntrance"))
-        {
-            SceneManager.LoadSceneAsync("TowerInside");
-        }
-        else if (other.gameObject.CompareTag("InteriorDoor"))
-        {
-            SceneManager.LoadSceneAsync("Esotyre");
-        }
-        else
-        {
-            string tag = other.gameObject.tag;
+        // Walking on object audio
+        string tag = other.gameObject.tag;
 
-            switch (tag)
-            {
-                case "Wood":
-                    terrainStandingOn = MovementAudio.TerrainType.WOOD;
-                    break; 
-                case "Stone":
-                    terrainStandingOn = MovementAudio.TerrainType.STONE;
-                    break;
-                default:
-                    terrainStandingOn = MovementAudio.TerrainType.NULL;
-                    break;
-            }
+        switch (tag)
+        {
+            case "Wood":
+                terrainStandingOn = MovementAudio.TerrainType.WOOD;
+                break; 
+            case "Stone":
+                terrainStandingOn = MovementAudio.TerrainType.STONE;
+                break;
+            default:
+                terrainStandingOn = MovementAudio.TerrainType.NULL;
+                break;
         }
     }
 
