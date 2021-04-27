@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement; 
+using UnityEngine.SceneManagement;
 
 public class Workstation : MonoBehaviour
 {
 
-    private List<Item>cauldronInventory = new List<Item>();
-    HUD playerHUD; 
+    private List<Item> cauldronInventory = new List<Item>();
+    public static Sprite[] itemSprites;
+    HUD playerHUD;
 
     private void Start()
     {
@@ -15,6 +16,7 @@ public class Workstation : MonoBehaviour
         playerHUD.DisableCrosshair();
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        itemSprites = Resources.LoadAll<Sprite>("ItemIcons");
     }
 
     /// <summary>
@@ -22,21 +24,20 @@ public class Workstation : MonoBehaviour
     /// </summary>
     public void BrewRecipe()
     {
-        // TODO: Add brew logic here
-
-        /*public void OnFinishedRecipe() {
-        //Fetch the array of items given to the cauldron
-        cauldronObject = GameObject.FindWithTag("Cauldron");
-        Item[] cauldronArray = cauldronObject.GetComponent<CauldronInventory>().cauldronInventory;
-        for (int i = 0; i < cauldronArray.Length; i++) {
-        if (cauldronArray[i]!=null)
-         Debug.Log(cauldronArray[i].itemName);
+        //Fetch the items given to the cauldron
+        Debug.Log("IN CAULDRON: ");
+        foreach (KeyValuePair<Item, int> entry in CauldronInventory.GetAll())
+        {
+            Debug.Log(entry.Key.name);
         }
+        Debug.Log("END OF CAULDRON LIST");
         //Add in logic checks from workstation (numbers of stirs, direction, etc)
         //After verifying player's recipe, add new item to inventory
         //Example of created item added: 
-        Inventory.AddItem(new Item("Candle", "Sprites/candle"));
-    }*/
+        Inventory.AddItem(new Item("Sword", itemSprites[49]));
+        playerHUD.DrawInventory();
+
+        //Inventory.AddItem(new Item("Candle", "Sprites/candle"));
     }
 
     /// <summary>
@@ -48,7 +49,7 @@ public class Workstation : MonoBehaviour
     }
 
     // Update is called once per frame
-    public void AddCauldronItem(Item newItem)
+    /*public void AddCauldronItem(Item newItem)
     {
         for (int i = 0; i < cauldronInventory.Count; i++)
         {
@@ -63,14 +64,9 @@ public class Workstation : MonoBehaviour
 
     public void PrintCauldronInventory()
     {
-        Debug.Log("Start of inventory:");
-        for (int i = 0; i < cauldronInventory.Count; i++)
+        foreach (KeyValuePair<Item, int> entry in CauldronInventory.GetAll())
         {
-            if (cauldronInventory[i] != null)
-            {
-                Debug.Log(cauldronInventory[i].name);
-            }
+            Debug.Log(entry.Key.name);
         }
-        Debug.Log("End of inventory");
-    }
+    }*/
 }
