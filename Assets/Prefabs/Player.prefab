@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 5797713265235556853}
   - component: {fileID: 5797713265235556856}
   - component: {fileID: 5797713265235556859}
-  - component: {fileID: 5797713265235556858}
   - component: {fileID: 554988103}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: First Person Camera
   m_TagString: FPCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85,22 +84,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5797713265235556852}
   m_Enabled: 1
---- !u!114 &5797713265235556858
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5797713265235556852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83c271895c8e846aaba616d1ab1137c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mouseSensitivity: 64
-  playerBody: {fileID: 5797713265671554434}
-  raycastDist: 4
-  buttonIcons: []
 --- !u!114 &554988103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,7 +132,7 @@ GameObject:
   - component: {fileID: -2634017666457256938}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -199,16 +182,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b605e40a0d174cf5a3f42feb827c76c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 5797713265671554429}
-  sceneGroundTrans: {fileID: 0}
-  groundDistance: 0.4
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 0
   speed: 4
   runSpeed: 8
   jumpHeight: 1
   gravity: -9.81
+  mouseSensitivity: 64
 --- !u!114 &4463012130054358832
 MonoBehaviour:
   m_ObjectHideFlags: 0
