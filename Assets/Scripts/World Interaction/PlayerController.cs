@@ -3,37 +3,59 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
-    [Header("World References")]
-    public CharacterController controller;
-    public Transform sceneGroundTrans;
-    public float groundDistance = 0.4f;
-    public LayerMask groundMask;
-    
     [Header("Movement Settings")]
     public float speed = 12f;
     public float runSpeed = 8f;
-    public float jumpHeight = 1.0f; 
+    public float jumpHeight = 1.0f;
     public float gravity = -9.81f;
+    public float mouseSensitivity = 64f;
 
+    /* Camera Vars*/
+    private float xRotation = 0f;
+    private GameObject FPCamera;
+
+    /* Phsyical Movement Vars */
     private Vector3 velocity;
     private bool airborn = false;
-
+    private CharacterController controller;
+    
+    /* Movement Audio */
     private MovementAudio movementAudio;
     private MovementAudio.MovementType movementType;
     private MovementAudio.TerrainType terrainStandingOn;
 
     private void Start()
     {
+        /*-------Physical Movement Setup-----------*/
         terrainStandingOn = MovementAudio.TerrainType.NULL;
         movementAudio = GetComponent<MovementAudio>();
         controller = GetComponent<CharacterController>();
+
+        /*-------Camera Movement Setup-------------*/
+        FPCamera = GameObject.FindGameObjectWithTag("FPCamera");
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
+        transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
     }
 
     // Update is called once per frame
     void Update()
     {
+        /*------Camera Movement------*/
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+
+        xRotation -= mouseY;
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+
+        FPCamera.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
+        transform.Rotate(Vector3.up * mouseX);
+
+
+        /*------Physical Movement------*/
         bool groundedPlayer = controller.isGrounded;
         float tempSpeed = speed;
 
