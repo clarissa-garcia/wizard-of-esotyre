@@ -7,13 +7,13 @@ public class StirCounter : MonoBehaviour
 	private int numStirs;
 	private bool isClockwise;
 	StirTextUpdate stirText;
-	DirectionTextUpdate directionText;
+	public DirectionTextUpdate directionText;
 	
     // Start is called before the first frame update
     void Start()
     {
 		stirText = GetComponent<StirTextUpdate>();
-		directionText = GetComponent<DirectionTextUpdate>();
+		//directionText = GetComponent<DirectionTextUpdate>();
         numStirs = 0;
 		isClockwise = true;
     }
