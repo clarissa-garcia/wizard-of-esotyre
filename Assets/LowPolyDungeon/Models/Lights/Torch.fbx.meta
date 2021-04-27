@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 16843a201cbb96d48800f28d422d3307
+=======
+guid: 06137d2d5b3d5f04590aedb2084dd312
+>>>>>>> playtest2
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []

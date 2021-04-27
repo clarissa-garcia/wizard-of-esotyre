@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 4da161b519e0cae44a8b3a65b0caec40
+=======
+guid: b5df781b15c3db640a69d86ff349c0ff
+>>>>>>> playtest2
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 2100000

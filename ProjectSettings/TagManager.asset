@@ -11,9 +11,13 @@ TagManager:
   - Wood
   - Stone
   - Cauldron
+<<<<<<< HEAD
   - FPCamera
   - PlayerHUD
   - SoundManager
+=======
+  - StirDisp
+>>>>>>> playtestInventory
   layers:
   - Default
   - TransparentFX
