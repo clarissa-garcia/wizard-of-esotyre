@@ -17,11 +17,14 @@ public class HUD : MonoBehaviour
     public GameObject popUp;
     public TextMeshProUGUI popUpText;
     public GameObject crossHair;
+    public Book recipeBook;
+    public bool check = false;
     
 
     // Start is called before the first frame update
     void Start()
     {
+        recipeBook.gameObject.SetActive(false);
         if (loadDemoInventory)
         {
             Inventory.GenDemoInventory();
@@ -49,6 +52,27 @@ public class HUD : MonoBehaviour
         {
             inventorySlots[i].ClearSlot();
             i++;
+        }
+    }
+    public void Update()
+    {
+        if (Input.GetKeyDown("b"))
+        {
+            Cursor.visible = !Cursor.visible;
+            recipeBook.gameObject.SetActive(!recipeBook.isActiveAndEnabled);
+
+            if (!check)
+            {
+                Cursor.lockState = CursorLockMode.None;
+                DisableCrosshair();
+                check = true;            
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                EnableCrosshair();
+                check = false;
+            }
         }
     }
 
