@@ -15,9 +15,7 @@ public class Workstation : MonoBehaviour
     private void Start()
     {
         playerHUD = GameObject.FindWithTag("PlayerHUD").GetComponent<HUD>();
-        playerHUD.DisableCrosshair();
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        playerHUD.EnableCursor();
         itemSprites = Resources.LoadAll<Sprite>("ItemIcons");
         stirCounter = GameObject.Find("Stir Count").GetComponent<StirCounter>();
     }

@@ -17,14 +17,19 @@ public class HUD : MonoBehaviour
     public GameObject popUp;
     public TextMeshProUGUI popUpText;
     public GameObject crossHair;
-    public Book recipeBook;
-    public bool check = false;
+    public GameObject recipeBook;
     
+    private int cursorSemaphore;
+    private PlayerController playerController = null; 
 
     // Start is called before the first frame update
     void Start()
     {
-        recipeBook.gameObject.SetActive(false);
+        if(GameObject.FindWithTag("Player"))
+            playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+
+        cursorSemaphore = 0;
+
         if (loadDemoInventory)
         {
             Inventory.GenDemoInventory();
@@ -55,33 +60,48 @@ public class HUD : MonoBehaviour
         }
     }
     public void Update()
-    {
+    {  
+        /* Recipe Book */ 
         if (Input.GetKeyDown("b"))
         {
-            Cursor.visible = !Cursor.visible;
-            recipeBook.gameObject.SetActive(!recipeBook.isActiveAndEnabled);
+            recipeBook.SetActive(!recipeBook.activeSelf);
 
-            if (!check)
-            {
-                Cursor.lockState = CursorLockMode.None;
-                DisableCrosshair();
-                check = true;            
-            }
+            if (recipeBook.activeSelf)
+                EnableCursor();
             else
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-                EnableCrosshair();
-                check = false;
-            }
+                DisableCursor();
         }
     }
 
-    public void EnableCrosshair()
+    public int EnableCursor()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        DisableCrosshair();
+        if(playerController) playerController.CameraMovement(false);
+        return ++cursorSemaphore;
+    }
+
+    public int DisableCursor()
+    {
+        if (--cursorSemaphore <= 0)
+        {
+            cursorSemaphore = 0;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            if (playerController) playerController.CameraMovement(true);
+            EnableCrosshair();
+        }
+
+        return cursorSemaphore;
+    }
+
+    private void EnableCrosshair()
     {
         crossHair.SetActive(true); 
     }
 
-    public void DisableCrosshair()
+    private void DisableCrosshair()
     {
         crossHair.SetActive(false);
     }
