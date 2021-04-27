@@ -13,7 +13,7 @@ public class StirCounter : MonoBehaviour
     void Start()
     {
 		stirText = GetComponent<StirTextUpdate>();
-		//directionText = GetComponent<DirectionTextUpdate>();
+		directionText = GameObject.Find("Direction label").GetComponent<DirectionTextUpdate>();
         numStirs = 0;
 		isClockwise = true;
     }

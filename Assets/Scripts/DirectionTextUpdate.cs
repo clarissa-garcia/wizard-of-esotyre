@@ -10,7 +10,7 @@ public class DirectionTextUpdate : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        direction = GetComponent<Text>();
+        direction = GameObject.Find("Direction label").GetComponent<Text>();
 		direction.text = "Clockwise";
     }
 
@@ -23,9 +23,11 @@ public class DirectionTextUpdate : MonoBehaviour
 	public void updateDirection(bool clockwise){
 		if(clockwise == true){
 			direction.text = "Clockwise";
+			Debug.Log(direction.text);
 		}
 		else if(clockwise == false){
 			direction.text = "Counterclockwise";
+			Debug.Log(direction.text);
 		}
 		else{
 			Debug.Log("broken dir button");
