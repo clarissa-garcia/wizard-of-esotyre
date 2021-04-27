@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class workstationButton : MonoBehaviour
 {
+    HUD playerHUD;
+
     public void ClickedItem()
     {
 
@@ -35,8 +37,12 @@ public class workstationButton : MonoBehaviour
                 //Access the item slot to update the inventory count
                 ItemSlot currentItemSlot = GetComponent<ItemSlot>();
                 currentItemSlot.UpdateItemCount(itemHeldNum - 1);
+                playerHUD = GameObject.FindWithTag("PlayerHUD").GetComponent<HUD>();
+                playerHUD.DrawInventory();
+
+
             }
-            
+
         }
     }
 }

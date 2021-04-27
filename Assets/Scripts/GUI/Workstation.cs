@@ -7,6 +7,7 @@ public class Workstation : MonoBehaviour
 {
 
     private List<Item> cauldronInventory = new List<Item>();
+    public static Sprite[] itemSprites;
     HUD playerHUD;
 
     private void Start()
@@ -15,6 +16,7 @@ public class Workstation : MonoBehaviour
         playerHUD.DisableCrosshair();
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        itemSprites = Resources.LoadAll<Sprite>("ItemIcons");
     }
 
     /// <summary>
@@ -32,7 +34,8 @@ public class Workstation : MonoBehaviour
         //Add in logic checks from workstation (numbers of stirs, direction, etc)
         //After verifying player's recipe, add new item to inventory
         //Example of created item added: 
-
+        Inventory.AddItem(new Item("Sword", itemSprites[49]));
+        playerHUD.DrawInventory();
 
         //Inventory.AddItem(new Item("Candle", "Sprites/candle"));
     }

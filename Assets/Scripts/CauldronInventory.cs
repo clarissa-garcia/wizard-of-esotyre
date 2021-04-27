@@ -5,6 +5,7 @@ using UnityEngine;
 public static class CauldronInventory
 {
     private static Dictionary<Item, int> items = new Dictionary<Item, int>(7); // Dictionary with <Item, number in cauldron>. 
+
     public static Dictionary<Item, int> GetAll()
     {
         return items;
