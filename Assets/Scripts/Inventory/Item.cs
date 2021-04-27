@@ -32,5 +32,28 @@ public class Item
         return this.sprite;
     }
 
+    public override bool Equals(object obj)
+    {
+        if ((obj == null) || ! this.GetType().Equals(obj.GetType()))
+        {
+            return false;
+        }
+        else
+        {
+            Item other = obj as Item;
+            return this.name == other.name;
+        }
+    }
+
+    public override int GetHashCode()
+    {
+        int hashSum = 0;
+        foreach (char c in name)
+        {
+            hashSum += System.Convert.ToInt32(c);
+        }
+        return hashSum;
+    }
+
 
 }

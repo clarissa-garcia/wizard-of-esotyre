@@ -9,6 +9,7 @@ public class Workstation : MonoBehaviour
     private List<Item> cauldronInventory = new List<Item>();
     public static Sprite[] itemSprites;
     HUD playerHUD;
+    private StirCounter stirCounter;
 
     private void Start()
     {
@@ -17,6 +18,7 @@ public class Workstation : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         itemSprites = Resources.LoadAll<Sprite>("ItemIcons");
+        stirCounter = GameObject.Find("Stir Count").GetComponent<StirCounter>();
     }
 
     /// <summary>

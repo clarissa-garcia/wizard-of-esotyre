@@ -38,6 +38,11 @@ public class StirCounter : MonoBehaviour
 	public bool getDirection(){
 		return isClockwise;
 	}
+
+	public int GetNumStirs()
+	{
+		return numStirs;
+	}
 	
 	public void increaseStirs(){
 		/*

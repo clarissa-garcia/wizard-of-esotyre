@@ -72,6 +72,8 @@ public static class Inventory
             AddItem(new Item("Green Potion", itemSprites[104]));
             AddItem(new Item("Red Potion", itemSprites[102]), 3);
             AddItem(new Item("Branch", itemSprites[228]), 4);
+            AddItem(new Item("Water", itemSprites[250]));
+            AddItem(new Item("Coffee Beans", itemSprites[209]));
             genDemoInventory = true; 
         }
             
