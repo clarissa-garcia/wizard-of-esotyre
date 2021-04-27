@@ -41,6 +41,7 @@ public class HUD : MonoBehaviour
         foreach (KeyValuePair<Item, int> entry in Inventory.GetAll())
         {
             inventorySlots[i].SetIconAndCount(entry.Key.GetSprite(), entry.Value);
+            inventorySlots[i].setItem(entry.Key);
             i++;
         }
 

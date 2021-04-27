@@ -10,6 +10,7 @@ public class ItemSlot : MonoBehaviour
     public TextMeshProUGUI itemCount;
     public Image itemCountBG;
     public Image itemIcon;
+    public Item itemHeld;
 
     public void SetItemIcon(Sprite sprite)
     {
@@ -48,5 +49,9 @@ public class ItemSlot : MonoBehaviour
         Color tmp = img.color;
         tmp.a = n;
         img.color = tmp; 
+    }
+
+    public void setItem(Item itemSlotItem) {
+        this.itemHeld = itemSlotItem;
     }
 }

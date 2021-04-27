@@ -6,10 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class workstationButton : MonoBehaviour
 {
-    private GameObject playerobject;
-    private GameObject cauldronObject;
-    /*public void ClickedItem()
+    public void ClickedItem()
     {
+        Debug.Log("BEEN CLICKED");
+
         //Check that the button clicked has an image (is a non-empty item)
         // Then use the image name to look up the player's inventory item to update the quantity
         // in code and on the screen
@@ -21,21 +21,20 @@ public class workstationButton : MonoBehaviour
         // to the cauldron
         if (currentScene.name == "Workstation")
         {
-            Image imageToChange = transform.GetChild(0).GetComponent<Image>();
-            if (imageToChange.sprite != null)
+            if (gameObject.GetComponent<ItemSlot>().itemHeld != null)
             {
-                playerobject = GameObject.FindWithTag("Player");
-                Item_Map playerMap = playerobject.GetComponent<PlayerInventory>().playerMap;
-                Debug.Log(imageToChange.sprite.name);
-                playerMap.itemDictionary.TryGetValue("Sprites/" + imageToChange.sprite.name, out Item value);
-                //Once you get value, update it in the player's inventory
-                Inventory.RemoveItem(value);
-                // Add item deducted to the cauldron
-                cauldronObject = GameObject.FindWithTag("Cauldron");
-                cauldronObject.GetComponent<CauldronInventory>().addItem(value);
-                //sorry for long line, there was no other way to access inventory panel from a button call
-                playerobject.GetComponent<PlayerInventory>().inventoryPanel.GetComponent<DrawPlayerInventory>().drawInventory(playerobject.GetComponent<PlayerInventory>().playerInventory);
+                Item itemHeld = gameObject.GetComponent<ItemSlot>().itemHeld;
+                int itemHeldNum = Inventory.getItemCount(itemHeld);
+                Debug.Log("Item to be removed is: " + itemHeld.name);
+
+                Inventory.RemoveItem(itemHeld);
+                 // Add item deducted to the caulron
+                CauldronInventory.AddItem(itemHeld);
+                //Access the item slot to update the inventory count
+                ItemSlot currentItemSlot = GetComponent<ItemSlot>();
+                currentItemSlot.UpdateItemCount(itemHeldNum - 1);
             }
+            
         }
-    }*/
+    }
 }

@@ -2,35 +2,42 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CauldronInventory : MonoBehaviour
+public static class CauldronInventory
 {
-    
-
-    /*private void Start()
+    private static Dictionary<Item, int> items = new Dictionary<Item, int>(7); // Dictionary with <Item, number in cauldron>. 
+    public static Dictionary<Item, int> GetAll()
     {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        return items;
     }
 
-    // Update is called once per frame
-    public void addItem(Item newItem) {
-        for (int i = 0; i < cauldronInventory.Length; i++) {
-            if (cauldronInventory[i] == null) {
-                cauldronInventory[i] = newItem;
-                printCauldronInventory();
-                return;
-            }
-        }
+    public static int AddItem(Item item)
+    {
+        return AddItem(item, 1);
     }
 
-    public void printCauldronInventory() {
-        Debug.Log("Start of inventory:");
-        for (int i = 0; i < cauldronInventory.Length; i++)
+    public static int AddItem(Item item, int n)
+    {
+        if (items.Count >= 7) // no room in inventory 
+            return 0;
+        else if (ContainsItem(item) != null)// item in inventory already
         {
-            if (cauldronInventory[i] != null) {
-                Debug.Log(cauldronInventory[i].itemName);
-            }
+            item = ContainsItem(item);
+            items[item] += n;
         }
-        Debug.Log("End of inventory");
-    }*/
+        else // item not in inventory, add it
+            items.Add(item, n);
+
+        return items[item];
+    }
+
+    private static Item ContainsItem(Item item)
+    {
+        foreach (KeyValuePair<Item, int> entry in items)
+        {
+            if (entry.Key.name == item.name)
+                return entry.Key;
+        }
+
+        return null;
+    }
 }

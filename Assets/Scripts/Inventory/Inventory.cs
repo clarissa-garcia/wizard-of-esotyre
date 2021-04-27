@@ -77,6 +77,14 @@ public static class Inventory
             
     }
 
+    public static int getItemCount(Item item) {
+        int value;
+        if (items.TryGetValue(item, out value)){
+            return value;
+        }
+        return 0;
+    }
+
     private static Item ContainsItem(Item item)
     {
         foreach(KeyValuePair<Item, int> entry in items)
