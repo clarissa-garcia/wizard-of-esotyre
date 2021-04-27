@@ -8,7 +8,6 @@ public class workstationButton : MonoBehaviour
 {
     public void ClickedItem()
     {
-        Debug.Log("BEEN CLICKED");
 
         //Check that the button clicked has an image (is a non-empty item)
         // Then use the image name to look up the player's inventory item to update the quantity

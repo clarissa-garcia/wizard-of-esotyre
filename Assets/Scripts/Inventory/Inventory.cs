@@ -69,9 +69,12 @@ public static class Inventory
     {
         if (!genDemoInventory)
         {
-            AddItem(new Item("Green Potion", itemSprites[102]));
-            AddItem(new Item("Red Potion", itemSprites[104]), 3);
+            AddItem(new Item("Green Potion", itemSprites[104]));
+            Debug.Log("Green potion is "+itemSprites[104].name);
+            AddItem(new Item("Red Potion", itemSprites[102]), 3);
+            Debug.Log("Red potion is " + itemSprites[102].name);
             AddItem(new Item("Branch", itemSprites[228]), 4);
+            Debug.Log("228 is " + itemSprites[228].name);
             genDemoInventory = true; 
         }
             
