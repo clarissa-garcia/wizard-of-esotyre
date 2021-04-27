@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class workstationButton : MonoBehaviour
 {
     HUD playerHUD;
+    public GameObject circle;
 
     public void ClickedItem()
     {
@@ -39,6 +40,9 @@ public class workstationButton : MonoBehaviour
                 currentItemSlot.UpdateItemCount(itemHeldNum - 1);
                 playerHUD = GameObject.FindWithTag("PlayerHUD").GetComponent<HUD>();
                 playerHUD.DrawInventory();
+
+                circle.GetComponent<SpriteRenderer>().color = Random.ColorHSV();
+
 
 
             }

@@ -9,6 +9,8 @@ public class Workstation : MonoBehaviour
     private List<Item> cauldronInventory = new List<Item>();
     public static Sprite[] itemSprites;
     HUD playerHUD;
+    public GameObject circle;
+
 
     private void Start()
     {
@@ -35,6 +37,9 @@ public class Workstation : MonoBehaviour
         //After verifying player's recipe, add new item to inventory
         //Example of created item added: 
         Inventory.AddItem(new Item("Sword", itemSprites[49]));
+        playerHUD.DrawInventory();
+        // "Empty" the cauldron by turning the circle in it transparent
+        circle.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
         playerHUD.DrawInventory();
 
         //Inventory.AddItem(new Item("Candle", "Sprites/candle"));
