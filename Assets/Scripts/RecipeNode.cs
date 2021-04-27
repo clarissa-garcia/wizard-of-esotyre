@@ -39,12 +39,14 @@ public class RecipeNode
 
     public void SetFinalStir(bool clockwise, int numStirs)
     {
+        finalStir = true;
         this.clockwise = clockwise;
         this.numStirs = numStirs;
     }
 
     public bool IsFinalStir(bool clockwise, int numStirs)
     {
+        Debug.Log(this.clockwise + ", " + this.numStirs);
         if (finalStir)
         {
             return (this.clockwise == clockwise && this.numStirs == numStirs);
@@ -55,5 +57,10 @@ public class RecipeNode
     public Item GetResult()
     {
         return stirResult;
+    }
+
+    public void SetResult(Item item)
+    {
+        stirResult = item;
     }
 }

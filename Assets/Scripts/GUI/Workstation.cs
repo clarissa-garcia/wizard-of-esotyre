@@ -28,16 +28,19 @@ public class Workstation : MonoBehaviour
     public void BrewRecipe()
     {
         //Fetch the items given to the cauldron
-        Debug.Log("IN CAULDRON: ");
-        foreach (KeyValuePair<Item, int> entry in CauldronInventory.GetAll())
-        {
-            Debug.Log(entry.Key.name);
-        }
-        Debug.Log("END OF CAULDRON LIST");
+        // Debug.Log("IN CAULDRON: ");
+        // foreach (KeyValuePair<Item, int> entry in CauldronInventory.GetAll())
+        // {
+        //     Debug.Log(entry.Key.name);
+        // }
+        // Debug.Log("END OF CAULDRON LIST");
+
+        Item returnItem = RecipeController.CheckRecipe(CauldronInventory.GetAll(), stirCounter.GetDirection(), stirCounter.GetNumStirs());
+        Debug.Log(returnItem.name);
         //Add in logic checks from workstation (numbers of stirs, direction, etc)
         //After verifying player's recipe, add new item to inventory
         //Example of created item added: 
-        Inventory.AddItem(new Item("Sword", itemSprites[49]));
+        Inventory.AddItem(returnItem);
         playerHUD.DrawInventory();
         // "Empty" the cauldron by turning the circle in it transparent
         circle.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);

@@ -35,7 +35,7 @@ public class StirCounter : MonoBehaviour
 	}
 
 	
-	public bool getDirection(){
+	public bool GetDirection(){
 		return isClockwise;
 	}
 

@@ -14,29 +14,34 @@ public static class RecipeController
         if (!genDemoTree)
         {
             RecipeNode current = head.AddChild(new Item("Water", itemSprites[250]));
-            current.AddChild(new Item("Coffee Beans", itemSprites[209]));
-            current.SetFinalStir(false, 2);
+            current = current.AddChild(new Item("Coffee Beans", itemSprites[209]));
+            current.SetFinalStir(true, 2);
+            current.SetResult(new Item("Coffee", itemSprites[212]));
             genDemoTree = true;
         }
     }
 
     public static Item CheckRecipe(Dictionary<Item, int> items, bool clockwise, int numStirs)
     {
+        GenDemoTree();
         RecipeNode currentNode = head;
         foreach (KeyValuePair<Item, int> item in items)
         {
+            Debug.Log(item.Key.name);
             if (currentNode.HasChild(item.Key))
             {
                 currentNode = currentNode.GetChild(item.Key);
+                Debug.Log("Has Child");
             }
             else
             {
                 return null;
             }
         }
-
+        Debug.Log(clockwise + ", " + numStirs);
         if (currentNode.IsFinalStir(clockwise, numStirs))
         {
+            Debug.Log("Valid Recipe");
             return currentNode.GetResult();
         }
         else
