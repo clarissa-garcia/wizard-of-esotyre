@@ -13,7 +13,7 @@ public class CCButton : MonoBehaviour
     {
 		directionB = GameObject.Find("Direction Button").GetComponent<Button>();
         counter = GameObject.Find("Stir Count").GetComponent<StirCounter>();
-		directionB.onClick.AddListener(directionSwitch);
+		//directionB.onClick.AddListener(directionSwitch);
 	}
 
     // Update is called once per frame

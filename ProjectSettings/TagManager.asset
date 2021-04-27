@@ -3,26 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - CastleEntrance
-  - Ground
-  - InteriorDoor
-  - Terrain
-  - Wood
-  - Stone
-  - Cauldron
-<<<<<<< HEAD
-  - FPCamera
-  - PlayerHUD
-  - SoundManager
-=======
-  - StirDisp
->>>>>>> playtestInventory
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Interactable
+  - 
   - Water
   - UI
   - 
