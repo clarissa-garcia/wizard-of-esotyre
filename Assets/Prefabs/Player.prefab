@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 554988103}
   m_Layer: 0
   m_Name: Main Camera
-  m_TagString: MainCamera
+  m_TagString: FPCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,8 +100,6 @@ MonoBehaviour:
   mouseSensitivity: 64
   playerBody: {fileID: 5797713265671554434}
   raycastDist: 4
-  popUp: {fileID: 0}
-  popUpText: {fileID: 0}
   buttonIcons: []
 --- !u!114 &554988103
 MonoBehaviour:

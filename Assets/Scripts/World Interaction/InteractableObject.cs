@@ -15,6 +15,8 @@ public class InteractableObject : MonoBehaviour
     [TextArea(5, 10)]
     public string popUpText;
 
+    public GameObject floatingTextPrefab;
+
     private GameObject floatingTextObject;
     private cakeslice.Outline outln; // outline attached to object
     private GameObject mainCamera = null;
@@ -23,11 +25,10 @@ public class InteractableObject : MonoBehaviour
 
     private void Start()
     {
+
         gameObject.layer = 3;
         outln = gameObject.AddComponent<cakeslice.Outline>();
-        mainCamera = null;
         mainCamera = GameObject.FindWithTag("FPCamera");
-
         playerHUD = GameObject.FindWithTag("PlayerHUD").GetComponent<HUD>();
         outln.enabled = false;
 
@@ -39,21 +40,18 @@ public class InteractableObject : MonoBehaviour
 
     }
 
-    /*private void Awake()
+    private void Awake()
     {
         if (showFloatingText)
         {
-            floatingTextObject = new GameObject();
-            floatingTextObject.transform.parent = gameObject.transform;
-            floatingTextObject.transform.localPosition = new Vector3(0, 1, 0);
-            floatingTextObject.AddComponent<TextMeshPro>().text = floatingText;
+            floatingTextObject = Instantiate(floatingTextPrefab, gameObject.transform);
         }
-    }*/
+    }
 
     void Update()
     {
-        /*if (showFloatingText)
-            floatingTextObject.transform.rotation = Quaternion.LookRotation(floatingTextObject.transform.position - mainCamera.transform.position);*/
+        if (showFloatingText && floatingTextObject)
+            floatingTextObject.transform.rotation = Quaternion.LookRotation(floatingTextObject.transform.position - mainCamera.transform.position);
 
         Interact();
     }
