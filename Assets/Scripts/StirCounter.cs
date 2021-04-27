@@ -6,10 +6,14 @@ public class StirCounter : MonoBehaviour
 {
 	private int numStirs;
 	private bool isClockwise;
+	StirTextUpdate stirText;
+	public DirectionTextUpdate directionText;
 	
     // Start is called before the first frame update
     void Start()
     {
+		stirText = GetComponent<StirTextUpdate>();
+		directionText = GameObject.Find("Direction label").GetComponent<DirectionTextUpdate>();
         numStirs = 0;
 		isClockwise = true;
     }
@@ -26,14 +30,13 @@ public class StirCounter : MonoBehaviour
 	*/
 	public void flipDirection(){
 		isClockwise = !isClockwise;
+		Debug.Log("Direction changed");
+		directionText.updateDirection(isClockwise);
 	}
+
 	
-	public void stirClockwise(){
-		isClockwise = true;
-	}
-	
-	public void stirCCwise(){
-		isClockwise = false;
+	public bool getDirection(){
+		return isClockwise;
 	}
 	
 	public void increaseStirs(){
@@ -43,6 +46,8 @@ public class StirCounter : MonoBehaviour
 		*/
 		if(numStirs <= 99){
 			numStirs++;
+			Debug.Log("Stirs increased " + numStirs);
+			stirText.updateCount(numStirs.ToString());
 		}
 	}
 	
@@ -50,6 +55,8 @@ public class StirCounter : MonoBehaviour
 		if(numStirs >= 1){
 			//can only update if # won't go below 0
 			numStirs--;
+			Debug.Log("Stirs decreased " + numStirs);
+			stirText.updateCount(numStirs.ToString());
 		}
 	}
 	
