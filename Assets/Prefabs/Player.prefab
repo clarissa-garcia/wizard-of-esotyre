@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: -2634017666457256938}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -187,13 +187,6 @@ MonoBehaviour:
   jumpHeight: 1
   gravity: -9.81
   mouseSensitivity: 64
-  FPCamera: {fileID: 5797713265235556852}
-  controller: {fileID: 5797713265671554429}
-  sceneGroundTrans: {fileID: 0}
-  groundDistance: 0.4
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!114 &4463012130054358832
 MonoBehaviour:
   m_ObjectHideFlags: 0

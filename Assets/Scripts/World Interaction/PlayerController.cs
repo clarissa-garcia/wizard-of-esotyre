@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     /* Camera Vars*/
     private float xRotation = 0f;
     private GameObject FPCamera;
+    private bool enabledCamMove; 
 
     /* Phsyical Movement Vars */
     private Vector3 velocity;
@@ -25,9 +26,14 @@ public class PlayerController : MonoBehaviour
     private MovementAudio movementAudio;
     private MovementAudio.MovementType movementType;
     private MovementAudio.TerrainType terrainStandingOn;
+   
+    private HUD playerHUD; 
 
     private void Start()
     {
+
+        playerHUD = GameObject.FindWithTag("PlayerHUD").GetComponent<HUD>();
+
         /*-------Physical Movement Setup-----------*/
         terrainStandingOn = MovementAudio.TerrainType.NULL;
         movementAudio = GetComponent<MovementAudio>();
@@ -35,8 +41,8 @@ public class PlayerController : MonoBehaviour
 
         /*-------Camera Movement Setup-------------*/
         FPCamera = GameObject.FindGameObjectWithTag("FPCamera");
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        playerHUD.DisableCursor();
+        enabledCamMove = true;
 
         transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
     }
@@ -45,14 +51,17 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         /*------Camera Movement------*/
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        if (enabledCamMove)
+        {
+            float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+            float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+            xRotation -= mouseY;
+            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        FPCamera.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
-        transform.Rotate(Vector3.up * mouseX);
+            FPCamera.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
+            transform.Rotate(Vector3.up * mouseX);
+        }
 
 
         /*------Physical Movement------*/
@@ -152,8 +161,15 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+   
+
     private void OnTriggerExit(Collider other)
     {
         terrainStandingOn = MovementAudio.TerrainType.NULL;
+    }
+
+    public void CameraMovement(bool b)
+    {
+        enabledCamMove = b; 
     }
 }
