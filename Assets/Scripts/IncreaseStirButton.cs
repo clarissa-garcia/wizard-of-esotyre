@@ -5,15 +5,17 @@ using UnityEngine.UI;
 
 public class IncreaseStirButton : MonoBehaviour
 {
-	Button increaseB;
-	StirCounter counter;
+	private Button increaseB;
+	private StirCounter counter;
+	private Text count;
 	
     // Start is called before the first frame update
     void Start()
     {
         increaseB = GetComponent<Button>();
-		counter = GetComponent<StirCounter>();
-		//increaseB.onClick.AddListener(TaskOnClick);
+		count = GameObject.Find("Stir Count").GetComponent<Text>();
+		counter = GameObject.Find("Stir Count").GetComponent<StirCounter>();
+		increaseB.onClick.AddListener(increaseButton);
     }
 
     // Update is called once per frame
@@ -23,7 +25,7 @@ public class IncreaseStirButton : MonoBehaviour
     }
 	
 	public void increaseButton(){
-		Debug.Log("Increase button clicked");
+		//Debug.Log("Increase button clicked");
 		counter.increaseStirs();
 	}
 }

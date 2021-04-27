@@ -11,6 +11,7 @@ TagManager:
   - Wood
   - Stone
   - Cauldron
+  - StirDisp
   layers:
   - Default
   - TransparentFX

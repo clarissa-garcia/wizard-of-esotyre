@@ -45,6 +45,7 @@ public class StirCounter : MonoBehaviour
 		*/
 		if(numStirs <= 99){
 			numStirs++;
+			Debug.Log("Stirs increased " + numStirs);
 			stirText.updateCount(numStirs.ToString());
 		}
 	}
@@ -53,6 +54,7 @@ public class StirCounter : MonoBehaviour
 		if(numStirs >= 1){
 			//can only update if # won't go below 0
 			numStirs--;
+			Debug.Log("Stirs decreased " + numStirs);
 			stirText.updateCount(numStirs.ToString());
 		}
 	}
