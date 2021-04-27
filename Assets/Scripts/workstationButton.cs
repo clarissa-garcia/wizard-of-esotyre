@@ -24,6 +24,9 @@ public class workstationButton : MonoBehaviour
             {
                 Item itemHeld = gameObject.GetComponent<ItemSlot>().itemHeld;
                 int itemHeldNum = Inventory.getItemCount(itemHeld);
+                if (itemHeldNum == 0) {
+                    return;
+                }
                 Debug.Log("Item to be removed is: " + itemHeld.name);
 
                 Inventory.RemoveItem(itemHeld);
