@@ -7,13 +7,13 @@ public class IncreaseStirButton : MonoBehaviour
 {
 	private Button increaseB;
 	private StirCounter counter;
-	private Text count;
+	//private Text count;
 	
     // Start is called before the first frame update
     void Start()
     {
         increaseB = GetComponent<Button>();
-		count = GameObject.Find("Stir Count").GetComponent<Text>();
+		//count = GameObject.Find("Stir Count").GetComponent<Text>();
 		counter = GameObject.Find("Stir Count").GetComponent<StirCounter>();
 		increaseB.onClick.AddListener(increaseButton);
     }
