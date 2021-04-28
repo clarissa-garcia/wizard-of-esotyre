@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenuMechanics : MonoBehaviour
+public class GameMenu : MonoBehaviour
 {
     public AudioClip TitleMusic;
     public AudioClip MouseClick;
+
+    public HUD playerHUD; 
 
     public void Start()
     {
@@ -26,4 +28,9 @@ public class MainMenuMechanics : MonoBehaviour
         SceneManager.LoadScene("Esotyre");
     }
 
+    public void ResumeGame()
+    {
+        SoundManager.Instance.Play(MouseClick);
+        playerHUD.ResumeGame();
+    }
 }
