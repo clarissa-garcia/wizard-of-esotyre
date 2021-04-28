@@ -91,7 +91,6 @@ GameObject:
   - component: {fileID: 5118077156733630444}
   - component: {fileID: 5118077156733630445}
   - component: {fileID: 5118077156733630446}
-  - component: {fileID: 5118077156733630443}
   m_Layer: 5
   m_Name: FinishRecipe
   m_TagString: Untagged
@@ -213,19 +212,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5118077156733630443
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5118077156733630448}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d27821ff2eb4bef40a35cd7f7659da13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerObject: {fileID: 0}
 --- !u!1 &5118077156743613967
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,7 +248,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -838, y: 470}
+  m_AnchoredPosition: {x: -430, y: 228}
   m_SizeDelta: {x: 139.33, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5118077156743613963
@@ -409,6 +395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bcb27b026b22654e8efeabf1d61349f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circle: {fileID: 0}
 --- !u!1 &7359461644211073412
 GameObject:
   m_ObjectHideFlags: 0

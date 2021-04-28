@@ -18,6 +18,7 @@ public class HUD : MonoBehaviour
     public TextMeshProUGUI popUpText;
     public GameObject crossHair;
     public GameObject recipeBook;
+    public GameObject pauseMenu;
     
     private int cursorSemaphore;
     private PlayerController playerController = null; 
@@ -71,6 +72,15 @@ public class HUD : MonoBehaviour
             else
                 DisableCursor();
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (pauseMenu.activeSelf)
+                ResumeGame();
+            else
+                PauseGame();
+
+        }
     }
 
     public int EnableCursor()
@@ -115,5 +125,19 @@ public class HUD : MonoBehaviour
     public void HidePopUp()
     {
         popUp.SetActive(false);
+    }
+
+    private void PauseGame()
+    {
+        EnableCursor();
+        Time.timeScale = 0;
+        pauseMenu.SetActive(true);
+    }
+
+    public void ResumeGame()
+    {
+        DisableCursor();
+        Time.timeScale = 1;
+        pauseMenu.SetActive(false);
     }
 }
