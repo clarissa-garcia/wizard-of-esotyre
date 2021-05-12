@@ -259,7 +259,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Rut
+  m_text: Sla
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -479,6 +479,7 @@ GameObject:
   - component: {fileID: 95873528}
   - component: {fileID: 95873527}
   - component: {fileID: 95873529}
+  - component: {fileID: 95873530}
   m_Layer: 0
   m_Name: Image (5)
   m_TagString: Untagged
@@ -587,7 +588,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 95873527}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 95873530}
+        m_TargetAssemblyTypeName: ClickedSyllable, Assembly-CSharp
+        m_MethodName: clickedSyllable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &95873530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95873525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c03fcbd8600b9549abecb234b9889f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entireSpellText: {fileID: 2069332068}
 --- !u!1 &168285432
 GameObject:
   m_ObjectHideFlags: 0
@@ -1201,6 +1227,7 @@ GameObject:
   - component: {fileID: 388835357}
   - component: {fileID: 388835356}
   - component: {fileID: 388835358}
+  - component: {fileID: 388835359}
   m_Layer: 0
   m_Name: Image (6)
   m_TagString: Untagged
@@ -1309,7 +1336,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 388835356}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 388835359}
+        m_TargetAssemblyTypeName: ClickedSyllable, Assembly-CSharp
+        m_MethodName: clickedSyllable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &388835359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388835354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c03fcbd8600b9549abecb234b9889f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entireSpellText: {fileID: 2069332068}
 --- !u!1001 &415667982
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1437,7 +1489,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Rut
+  m_text: Lig
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1743,7 +1795,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Rut
+  m_text: Cha
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1908,7 +1960,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Rut
+  m_text: Tah
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2277,7 +2329,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Rut
+  m_text: Ren
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2366,6 +2418,7 @@ GameObject:
   - component: {fileID: 686735685}
   - component: {fileID: 686735684}
   - component: {fileID: 686735686}
+  - component: {fileID: 686735687}
   m_Layer: 0
   m_Name: Image (2)
   m_TagString: Untagged
@@ -2474,7 +2527,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 686735684}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 686735687}
+        m_TargetAssemblyTypeName: ClickedSyllable, Assembly-CSharp
+        m_MethodName: clickedSyllable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &686735687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 686735682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c03fcbd8600b9549abecb234b9889f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entireSpellText: {fileID: 2069332068}
 --- !u!1 &770853485
 GameObject:
   m_ObjectHideFlags: 0
@@ -2552,6 +2630,7 @@ GameObject:
   - component: {fileID: 787033924}
   - component: {fileID: 787033923}
   - component: {fileID: 787033925}
+  - component: {fileID: 787033926}
   m_Layer: 0
   m_Name: Image (10)
   m_TagString: Untagged
@@ -2660,7 +2739,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 787033923}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &787033926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787033921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c03fcbd8600b9549abecb234b9889f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entireSpellText: {fileID: 2069332068}
 --- !u!1001 &838213574
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2784,7 +2888,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Rut
+  m_text: Mul
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2992,6 +3096,7 @@ GameObject:
   m_Component:
   - component: {fileID: 931321194}
   - component: {fileID: 931321196}
+  - component: {fileID: 931321195}
   m_Layer: 0
   m_Name: Items
   m_TagString: Untagged
@@ -3020,6 +3125,19 @@ RectTransform:
   m_AnchoredPosition: {x: 24, y: -36}
   m_SizeDelta: {x: 357.2, y: 265.3}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &931321195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 931321193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d1374e0e4c72924b8ccb4ac7456762b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entireSpellText: {fileID: 2069332068}
 --- !u!222 &931321196
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3759,7 +3877,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Rut
+  m_text: Phe
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3848,6 +3966,7 @@ GameObject:
   - component: {fileID: 1207388304}
   - component: {fileID: 1207388303}
   - component: {fileID: 1207388305}
+  - component: {fileID: 1207388306}
   m_Layer: 0
   m_Name: Image (1)
   m_TagString: Untagged
@@ -3953,10 +4072,35 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1207388303}
+  m_TargetGraphic: {fileID: 2037111251}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2037111254}
+        m_TargetAssemblyTypeName: ClickedSyllable, Assembly-CSharp
+        m_MethodName: clickedSyllable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1207388306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207388301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c03fcbd8600b9549abecb234b9889f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entireSpellText: {fileID: 2069332068}
 --- !u!1 &1270010594
 GameObject:
   m_ObjectHideFlags: 0
@@ -3969,6 +4113,7 @@ GameObject:
   - component: {fileID: 1270010597}
   - component: {fileID: 1270010596}
   - component: {fileID: 1270010598}
+  - component: {fileID: 1270010599}
   m_Layer: 0
   m_Name: Image (11)
   m_TagString: Untagged
@@ -4077,7 +4222,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1270010596}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1270010599}
+        m_TargetAssemblyTypeName: ClickedSyllable, Assembly-CSharp
+        m_MethodName: clickedSyllable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1270010599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270010594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c03fcbd8600b9549abecb234b9889f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entireSpellText: {fileID: 2069332068}
 --- !u!1 &1352435496
 GameObject:
   m_ObjectHideFlags: 0
@@ -4205,6 +4375,7 @@ GameObject:
   - component: {fileID: 1435505431}
   - component: {fileID: 1435505430}
   - component: {fileID: 1435505432}
+  - component: {fileID: 1435505433}
   m_Layer: 0
   m_Name: Image (7)
   m_TagString: Untagged
@@ -4313,7 +4484,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1435505430}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1435505433}
+        m_TargetAssemblyTypeName: ClickedSyllable, Assembly-CSharp
+        m_MethodName: clickedSyllable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1435505433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435505428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c03fcbd8600b9549abecb234b9889f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entireSpellText: {fileID: 2069332068}
 --- !u!1001 &1456978629
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5040,7 +5236,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Rut
+  m_text: Hed
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5129,6 +5325,7 @@ GameObject:
   - component: {fileID: 1764475065}
   - component: {fileID: 1764475064}
   - component: {fileID: 1764475066}
+  - component: {fileID: 1764475067}
   m_Layer: 0
   m_Name: Image (12)
   m_TagString: Untagged
@@ -5237,7 +5434,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1764475064}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1764475067}
+        m_TargetAssemblyTypeName: ClickedSyllable, Assembly-CSharp
+        m_MethodName: clickedSyllable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1764475067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1764475062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c03fcbd8600b9549abecb234b9889f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entireSpellText: {fileID: 2069332068}
 --- !u!1001 &1954563437
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5521,6 +5743,7 @@ GameObject:
   - component: {fileID: 2037111252}
   - component: {fileID: 2037111251}
   - component: {fileID: 2037111253}
+  - component: {fileID: 2037111254}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -5629,7 +5852,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2037111251}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2037111254}
+        m_TargetAssemblyTypeName: ClickedSyllable, Assembly-CSharp
+        m_MethodName: clickedSyllable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2037111254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2037111249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c03fcbd8600b9549abecb234b9889f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entireSpellText: {fileID: 2069332068}
 --- !u!1 &2069332068
 GameObject:
   m_ObjectHideFlags: 0
@@ -5688,7 +5936,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -5708,7 +5956,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 2069332071}
   m_OnClick:
     m_PersistentCalls:
