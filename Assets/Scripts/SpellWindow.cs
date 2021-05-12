@@ -14,12 +14,6 @@ public class SpellWindow : MonoBehaviour
         currentFullSpellText = entireSpellText.transform.GetChild(0).gameObject.GetComponent<TMP_Text>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void resetEntireSpell() {
         currentFullSpellText.text = "";
     }

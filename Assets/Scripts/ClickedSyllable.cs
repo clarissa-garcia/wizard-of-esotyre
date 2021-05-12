@@ -14,19 +14,14 @@ public class ClickedSyllable : MonoBehaviour
     {
         currentFullSpellText = entireSpellText.transform.GetChild(0).gameObject.GetComponent<TMP_Text>();
         buttonSyllable = transform.GetChild(0).gameObject.GetComponent<TMP_Text>();
-        Debug.Log(currentFullSpellText.text);
-        Debug.Log(buttonSyllable.text);
     }
 
     public void clickedSyllable()
     {
         //Check if three variables have been clicked already first
-        Debug.Log(buttonSyllable.text);
-        currentFullSpellText.text = currentFullSpellText.text + " " + buttonSyllable.text;
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // Each syllable has 3 letters, so total string should be 9 if full
+        if (currentFullSpellText.text.Replace(" ", string.Empty).ToString().Length != 9) {
+            currentFullSpellText.text = currentFullSpellText.text + " " + buttonSyllable.text;
+        }  
     }
 }
