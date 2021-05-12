@@ -16,7 +16,7 @@ public class SoundManager : MonoBehaviour
 	// Random pitch adjustment range.
 	public float LowPitchRange = .95f;
 	public float HighPitchRange = 1.05f;
-
+	private float musicVolume = 1f;
 	// Singleton instance.
 	public static SoundManager Instance = null;
 
@@ -37,9 +37,22 @@ public class SoundManager : MonoBehaviour
 		//Set SoundManager to DontDestroyOnLoad so that it won't be destroyed when reloading our scene.
 		DontDestroyOnLoad(gameObject);
 	}
+	/// <summary>
+	// Needed to adjust slider volume
+	/// </summary>
+	void Update()
+	{
+		MusicSource.volume = musicVolume;
+	}
 
-	// Play a single clip through the sound effects source.
-	public void Play(AudioClip clip)
+	//Function used to update slider volume to audiosource
+	public void updateVolume(float volume)
+	{
+		musicVolume = volume;
+	}
+
+// Play a single clip through the sound effects source.
+public void Play(AudioClip clip)
 	{
 		EffectsSource.clip = clip;
 		EffectsSource.Play();
