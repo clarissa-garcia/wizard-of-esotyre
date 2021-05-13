@@ -56,12 +56,22 @@ public class InteractableObject : MonoBehaviour
         Interact();
     }
 
-    private void OnMouseEnter()
+    private void OnMouseOver()
     {
-        Debug.Log("Mouse Entered");
-        outln.enabled = true;
-        if (showPopUp)
-            playerHUD.ShowPopUp(popUpText);
+        if (Vector3.Distance(GameObject.FindWithTag("Player").transform.position, transform.position) <= 5)
+        {
+            Debug.Log("Mouse Entered");
+                    outln.enabled = true;
+                    if (showPopUp)
+                        playerHUD.ShowPopUp(popUpText);
+        }
+        else
+        {
+            outln.enabled = false;
+            if (showPopUp)
+                playerHUD.HidePopUp();
+        }
+        
     }
 
     private void OnMouseExit()
