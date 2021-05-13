@@ -122,7 +122,7 @@ public class PlayerController : MonoBehaviour
     private void PlayMovementSound(MovementAudio.MovementType type)
     {
         // Player is in Esotyre (Outside)
-        if (SceneManager.GetActiveScene().name == "Esotyre")
+        if (SceneManager.GetActiveScene().name != "TowerInside")
         {
             // Player on object not terrain
             if (terrainStandingOn != MovementAudio.TerrainType.NULL)

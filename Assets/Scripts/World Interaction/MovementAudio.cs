@@ -23,6 +23,7 @@ public class MovementAudio : MonoBehaviour
         MUD,
         GRASS,
         WOOD,
+        SAND,
         SIZE,
         NULL
     }
@@ -32,24 +33,28 @@ public class MovementAudio : MonoBehaviour
     public AudioClip[] mudWalkClips;
     public AudioClip[] grassWalkClips;
     public AudioClip[] woodWalkClips;
+    public AudioClip[] sandWalkClips;
 
     [Header("Running Clips")]
     public AudioClip[] stoneRunClips;
     public AudioClip[] mudRunClips;
     public AudioClip[] grassRunClips;
     public AudioClip[] woodRunClips;
+    public AudioClip[] sandRunClips;
 
     [Header("Jump Start Clips")]
     public AudioClip[] stoneJumpStartClips;
     public AudioClip[] mudJumpStartClips;
     public AudioClip[] grassJumpStartClips;
     public AudioClip[] woodJumpStartClips;
+    public AudioClip[] sandJumpStartClips;
 
     [Header("Jump Land Clips")]
     public AudioClip[] stoneJumpLandClips;
     public AudioClip[] mudJumpLandClips;
     public AudioClip[] grassJumpLandClips;
     public AudioClip[] woodJumpLandClips;
+    public AudioClip[] sandJumpLandClips;
 
     private AudioSource audioSource;
     private TerrainDetector terrainDetector;
@@ -57,7 +62,7 @@ public class MovementAudio : MonoBehaviour
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
-        if(SceneManager.GetActiveScene().name == "Esotyre")
+        if(SceneManager.GetActiveScene().name == "EsotyreNew")
             terrainDetector = new TerrainDetector();
 
     }
@@ -83,9 +88,13 @@ public class MovementAudio : MonoBehaviour
 
         switch (terrainTextureIndex)
         {
-            case 4:
+            case 1:
                 this.Play(TerrainType.MUD, type);
-                return; 
+                return;
+            case 3:
+            case 5:
+                this.Play(TerrainType.SAND, type);
+                return;
             default:
                 this.Play(TerrainType.GRASS, type);
                 return;
@@ -105,6 +114,8 @@ public class MovementAudio : MonoBehaviour
                 return GetClipFromMovementType(movementType, grassWalkClips, grassRunClips, grassJumpStartClips, grassJumpLandClips);
             case TerrainType.MUD:
                 return GetClipFromMovementType(movementType, mudWalkClips, mudRunClips, mudJumpStartClips, mudJumpLandClips);
+            case TerrainType.SAND:
+                return GetClipFromMovementType(movementType, sandWalkClips, sandRunClips, sandJumpStartClips, sandJumpLandClips);
             default:
                 return null;
         }
