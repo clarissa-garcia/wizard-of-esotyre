@@ -9,11 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 52d38fa28b74bbc458eec9293123d4a1
   - enabled: 1
-    path: Assets/Scenes/Esotyre.unity
-    guid: fa734acc564e4464e8bc8af4ef8f09d4
-  - enabled: 1
     path: Assets/Scenes/TowerInside.unity
     guid: 6b7678630ac6b4a4e83b7cb0a0f07c92
+  - enabled: 1
+    path: Assets/Scenes/Esotyre.unity
+    guid: fa734acc564e4464e8bc8af4ef8f09d4
   - enabled: 1
     path: Assets/Scenes/Workstation.unity
     guid: 1399c3e7b385efa42b47f346307def9d

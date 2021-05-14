@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.223
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.2134105, g: 0.24007854, b: 0.28203428, a: 0.223}
+  m_IndirectSpecularColor: {r: 0.21341017, g: 0.24007818, b: 0.28203365, a: 0.223}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1442,7 +1442,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4855288998742498, guid: 6fdaf579ff0fb174b836e21d6ad95839, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1035.8
+      value: -1035.8002
       objectReference: {fileID: 0}
     - target: {fileID: 4855288998742498, guid: 6fdaf579ff0fb174b836e21d6ad95839, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1450,35 +1450,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4855288998742498, guid: 6fdaf579ff0fb174b836e21d6ad95839, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.99294686
+      value: 0.99319625
       objectReference: {fileID: 0}
     - target: {fileID: 4855288998742498, guid: 6fdaf579ff0fb174b836e21d6ad95839, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9596232
+      value: 0.95945007
       objectReference: {fileID: 0}
     - target: {fileID: 4855288998742498, guid: 6fdaf579ff0fb174b836e21d6ad95839, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: -0.0004408533
       objectReference: {fileID: 0}
     - target: {fileID: 4855288998742498, guid: 6fdaf579ff0fb174b836e21d6ad95839, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.28128868
+      value: -0.2818785
       objectReference: {fileID: 0}
     - target: {fileID: 4855288998742498, guid: 6fdaf579ff0fb174b836e21d6ad95839, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: -0.0001543923
       objectReference: {fileID: 0}
     - target: {fileID: 4855288998742498, guid: 6fdaf579ff0fb174b836e21d6ad95839, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -0.053
       objectReference: {fileID: 0}
     - target: {fileID: 4855288998742498, guid: 6fdaf579ff0fb174b836e21d6ad95839, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -32.674
+      value: -32.745
       objectReference: {fileID: 0}
     - target: {fileID: 4855288998742498, guid: 6fdaf579ff0fb174b836e21d6ad95839, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -0.003
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fdaf579ff0fb174b836e21d6ad95839, type: 3}
@@ -1504,7 +1504,7 @@ MonoBehaviour:
   floatingText: Collect wood
   showPopUp: 0
   popUpText: 
-  floatingTextPrefab: {fileID: 0}
+  floatingTextPrefab: {fileID: 4901698716662738787, guid: ba4a6241d18a7a74ab46e67011e9cc7b, type: 3}
   unlimited: 1
 --- !u!4 &255211542 stripped
 Transform:
@@ -3251,10 +3251,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxPlayerDist: 5
   showFloatingText: 1
-  floatingText: Collect water
-  showPopUp: 0
-  popUpText: 
-  floatingTextPrefab: {fileID: 0}
+  floatingText: Well
+  showPopUp: 1
+  popUpText: Collect Water
+  floatingTextPrefab: {fileID: 4901698716662738787, guid: ba4a6241d18a7a74ab46e67011e9cc7b, type: 3}
   unlimited: 1
 --- !u!4 &603424727 stripped
 Transform:
@@ -6193,7 +6193,7 @@ MonoBehaviour:
   floatingText: Collect Wood
   showPopUp: 0
   popUpText: 
-  floatingTextPrefab: {fileID: 0}
+  floatingTextPrefab: {fileID: 4901698716662738787, guid: ba4a6241d18a7a74ab46e67011e9cc7b, type: 3}
   unlimited: 1
 --- !u!4 &1119625922 stripped
 Transform:

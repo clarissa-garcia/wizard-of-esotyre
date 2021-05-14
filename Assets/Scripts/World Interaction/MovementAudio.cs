@@ -62,9 +62,10 @@ public class MovementAudio : MonoBehaviour
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
-        if(GameObject.FindWithTag("Terrain"))
+        if(SceneManager.GetActiveScene().name == "Esotyre"){
+            if(GameObject.FindWithTag("Terrain"))
             terrainDetector = new TerrainDetector();
-
+        }
     }
 
     /// <summary>
