@@ -572,7 +572,7 @@ Transform:
   - {fileID: 1986738650}
   - {fileID: 1626304128}
   m_Father: {fileID: 1587224869}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &106145488
 PrefabInstance:
@@ -648,7 +648,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1290192323667180, guid: 387d93711c1d03a48b083591256c560c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1290192323667180, guid: 387d93711c1d03a48b083591256c560c, type: 3}
       propertyPath: m_TagString
@@ -3276,6 +3276,102 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4579391998737150, guid: ff3af49199b5ea74f895ca4707dd9330, type: 3}
   m_PrefabInstance: {fileID: 1407033261}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &597899899
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 597899900}
+  - component: {fileID: 597899904}
+  - component: {fileID: 597899903}
+  - component: {fileID: 597899901}
+  m_Layer: 0
+  m_Name: GlowBlocker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &597899900
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597899899}
+  m_LocalRotation: {x: -0, y: 0.28740597, z: -0, w: 0.9578089}
+  m_LocalPosition: {x: 21.45, y: 77.28, z: 56.26}
+  m_LocalScale: {x: 0.8554605, y: 0.99214554, z: 0.912167}
+  m_Children: []
+  m_Father: {fileID: 1587224869}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 33.405, z: 0}
+--- !u!114 &597899901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597899899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 0
+  eraseRenderer: 1
+--- !u!23 &597899903
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597899899}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &597899904
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597899899}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &603424727 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4657260702397742, guid: 356fa83e91052c344953b8081a7d6f57, type: 3}
@@ -6112,6 +6208,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 554988103, guid: 76c78fcb09aaa3043865b7b2bd0005a1, type: 3}
+      propertyPath: additiveRendering
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5797713265671554431, guid: 76c78fcb09aaa3043865b7b2bd0005a1, type: 3}
       propertyPath: m_Name
       value: Player
@@ -8952,6 +9052,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 110641106}
+  - {fileID: 597899900}
   - {fileID: 105053918}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -10333,6 +10434,10 @@ PrefabInstance:
       value: Part1
       objectReference: {fileID: 0}
     - target: {fileID: 1290192323667180, guid: 387d93711c1d03a48b083591256c560c, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1290192323667180, guid: 387d93711c1d03a48b083591256c560c, type: 3}
       propertyPath: m_TagString
       value: Wood
       objectReference: {fileID: 0}
@@ -11688,6 +11793,25 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 6d0246924bf2bfd4583cbe081c6d5ea6, type: 3}
+--- !u!114 &2139323763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2139323761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 889eb06f71bb49f428b157b4ada5bf2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxPlayerDist: 10
+  showFloatingText: 0
+  floatingText: Broken Bridge
+  showPopUp: 1
+  popUpText: 'Hmmmm....It seems the bridge is out. I wonder if there''s a way I can
+    repair it. '
+  floatingTextPrefab: {fileID: 4901698716662738787, guid: ba4a6241d18a7a74ab46e67011e9cc7b, type: 3}
 --- !u!1001 &2140236054
 PrefabInstance:
   m_ObjectHideFlags: 0
