@@ -19,6 +19,11 @@ public static class RecipeController
             current.SetFinalStir(true, 2);
             current.SetResult(new Item("Coffee", itemSprites[212]));
 
+            current = head.AddChild(new Item("Wood", itemSprites[228]));
+            current = current.AddChild(new Item("Focusing Crystal", itemSprites[240]));
+            current.SetFinalEnchant("Ren Phe Tah");
+            current.SetResult(new Item("Wand of Repair", itemSprites[72]));
+
             genDemoTree = true;
         }
         current = head;
@@ -57,5 +62,28 @@ public static class RecipeController
     {
         GenDemoTree();
         RecipeNode currentNode = head;
+        foreach (KeyValuePair<Item, int> item in items)
+        {
+            Debug.Log(item.Key.name);
+            if (currentNode.HasChild(item.Key))
+            {
+                currentNode = currentNode.GetChild(item.Key);
+                Debug.Log("Has Child");
+            }
+            else
+            {
+                return null;
+            }
+        }
+        Debug.Log(enchantment);
+        if (currentNode.IsFinalEnchant(enchantment))
+        {
+            Debug.Log("Valid Recipe");
+            return currentNode.GetResult();
+        }
+        else
+        {
+            return null;
+        }
     }
 }
