@@ -94,3 +94,7 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+Assets/Plugins/Infinity Code/
+
+Assets/Plugins/Infinity Code.meta
