@@ -38,7 +38,7 @@ public static class RecipeController
             current = current.AddChild(new Item("Black Powder", itemSprites[259]));
             current = current.AddChild(new Item("Holy Fire", itemSprites[9]));
             current = current.AddChild(new Item("Chili", itemSprites[193]));
-            current.SetFinalStir(true, 4);
+            current.SetFinalStir(false, 4);
             current.SetResult(new Item("Potion of Destruction", itemSprites[105]));
 
             current = head.AddChild(new Item("Potion of Destruction", itemSprites[105]));
