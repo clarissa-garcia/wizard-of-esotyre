@@ -18,9 +18,10 @@ public static class RecipeController
             head = new RecipeNode();
 
             current = head.AddChild(new Item("Water", itemSprites[250]));
-            current = current.AddChild(new Item("Coffee Beans", itemSprites[209]));
+            current = current.AddChild(new Item("Coffee Gounds", itemSprites[209]));
             current.SetFinalStir(true, 2);
             current.SetResult(new Item("Coffee", itemSprites[212]));
+            current.SetOutsideChange(0);
 
             current = head.AddChild(new Item("Wood", itemSprites[228]));
             current = current.AddChild(new Item("Focusing Crystal", itemSprites[240]));
@@ -115,15 +116,20 @@ public static class RecipeController
     {
         switch(i)
         {
+            case 0:
+                QuestManager.Instance.SetQuest(Quest.REPAIR_BRIDGE);
+                break;
             case 1:
                 manager.repair = true;
                 break;
             case 2:
                 manager.jumpBoost = true;
+                QuestManager.Instance.SetQuest(Quest.ENTER_FOREST);
                 break;
             case 3:
                 manager.repair = false;
                 manager.destroy = true;
+                QuestManager.Instance.SetQuest(Quest.ENTER_CAVE);
                 break;
             default:
                 break;

@@ -19,6 +19,10 @@ public class HUD : MonoBehaviour
     public GameObject crossHair;
     public GameObject recipeBook;
     public GameObject pauseMenu;
+
+    public TextMeshProUGUI questText;
+
+    public TextMeshProUGUI recipeListText;
     
     private int cursorSemaphore;
     private PlayerController playerController = null; 
@@ -36,7 +40,8 @@ public class HUD : MonoBehaviour
             Inventory.GenDemoInventory();
             loadDemoInventory = false;
         }
-            
+        QuestManager.OnQuestChange += UpdateQuestText;
+        UpdateQuestText();
         DrawInventory();
     }
 
@@ -139,5 +144,34 @@ public class HUD : MonoBehaviour
         DisableCursor();
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
+    }
+
+    public void UpdateQuestText(){
+        switch(QuestManager.Instance.quest){
+            case Quest.COFFEE:
+                questText.text = "Quest: Make Coffee";
+                recipeListText.text = "-Water: Outside\n-Coffee: Inventory\n " +
+                "Go inside the tower and find the workstation. Follow the recipe in your book";
+                break;
+            case Quest.REPAIR_BRIDGE:
+                questText.text = "Quest: Repair the bridge";
+                recipeListText.text = "-Wood: Outside\n-Crystal: Tower\n " +
+                "Find wood, and then the crystals inside the tower. Follow the recipe to make a wand of repair"
+                +"Go to the bridge and click to repair.";
+                break;
+            case Quest.ENTER_FOREST:
+                questText.text = "Quest: Enter the forest";
+                recipeListText.text = "-Boots: Town\n-Metal: Town\n " +
+                "Craft the Boots of Jumping, which will allow you to jump higher. Once in the forest find the cave.";
+                break;
+            case Quest.ENTER_CAVE:
+                questText.text = "Quest: Enter the cave";
+                break;
+            
+        }
+    }
+
+    private void OnDestroy() {
+        QuestManager.OnQuestChange -= UpdateQuestText;
     }
 }

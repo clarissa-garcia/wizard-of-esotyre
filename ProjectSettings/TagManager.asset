@@ -9,6 +9,9 @@ TagManager:
   - SoundManager
   - FPCamera
   - Wood
+  - InteriorDoor
+  - Terrain
+  - RiverPlane
   layers:
   - Default
   - TransparentFX

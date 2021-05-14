@@ -84,7 +84,7 @@ public class RecipeNode
 
     public Item GetResult()
     {
-        if (outsideChange != 0)
+        if (outsideChange >= 0)
         {
             Debug.Log("Performing Oustide Change");
             RecipeController.PerformOutsideChange(outsideChange);

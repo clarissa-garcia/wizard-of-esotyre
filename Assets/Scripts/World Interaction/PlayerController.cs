@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-
+        QuestManager.OnQuestChange += updateJump;
         playerHUD = GameObject.FindWithTag("PlayerHUD").GetComponent<HUD>();
 
         /*-------Physical Movement Setup-----------*/
@@ -149,6 +149,9 @@ public class PlayerController : MonoBehaviour
 
         switch (tag)
         {
+            case "RiverPlane":
+                transform.position = new Vector3(-58.4f,20f,22.37f);
+                break;
             case "Wood":
                 terrainStandingOn = MovementAudio.TerrainType.WOOD;
                 break; 
@@ -161,11 +164,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-   
+    private void updateJump(){
+        if(QuestManager.Instance.quest == Quest.ENTER_CAVE){
+            jumpHeight = 2.5f;
+        }
+    }
 
     private void OnTriggerExit(Collider other)
     {
         terrainStandingOn = MovementAudio.TerrainType.NULL;
+    }
+
+    private void OnDestroy() {
+        QuestManager.OnQuestChange -= updateJump;
     }
 
     public void CameraMovement(bool b)

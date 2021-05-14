@@ -12,7 +12,7 @@ public static class Inventory
             "Green Potion",
             "Wood",
             "Water",
-            "Coffee Grounds",
+            "Coffee Gounds",
             "Coffee",
             "Wand of Repair",
             "Boots",
@@ -47,6 +47,7 @@ public static class Inventory
     };
 
     private static bool genDemoInventory = false; 
+    private static bool genStartInventory = true; 
     
 
     public static Dictionary<Item, int> GetAll()
@@ -117,7 +118,12 @@ public static class Inventory
             AddItem(new Item("Gem of Power", itemSprites[165]));
             AddItem(new Item("Wand of Repair", itemSprites[72]));
 
-            genDemoInventory = true; 
+            genDemoInventory = false; 
+        }
+
+        if(genStartInventory){
+            genStartInventory = false; 
+            AddItem(CreateItem(4));
         }
             
     }

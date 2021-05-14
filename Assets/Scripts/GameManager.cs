@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     public bool destroy = false;
     public bool jumpBoost = false;
 
-    private static bool bridgeRepaired = false; 
+    private bool bridgeRepaired = false; 
 
     private void Awake()
 	{

@@ -24,8 +24,10 @@ public class BridgeManager : MonoBehaviour
     }
 
     public void OnBridgeRepair(){
+        QuestManager.Instance.SetQuest(Quest.ENTER_FOREST);
         repairedBridge.SetActive(true);
         brokenBridge.SetActive(false);
+        GameObject.FindWithTag("PlayerHUD").GetComponent<HUD>().HidePopUp();
     }
 
     void OnDestroy()

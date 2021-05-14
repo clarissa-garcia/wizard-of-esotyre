@@ -28,25 +28,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 6d0246924bf2bfd4583cbe081c6d5ea6, type: 3}
---- !u!114 &3699310915436999967
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3698021275220060670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 889eb06f71bb49f428b157b4ada5bf2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxPlayerDist: 10
-  showFloatingText: 0
-  floatingText: Broken Bridge
-  showPopUp: 1
-  popUpText: 'Hmmmm....It seems the bridge is out. I wonder if there''s a way I can
-    repair it. '
-  floatingTextPrefab: {fileID: 4901698716662738787, guid: ba4a6241d18a7a74ab46e67011e9cc7b, type: 3}
 --- !u!1 &3699310915989055823
 GameObject:
   m_ObjectHideFlags: 0
