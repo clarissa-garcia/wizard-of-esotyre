@@ -6,7 +6,7 @@ using TMPro;
 public class InteractableObject : MonoBehaviour
 {
 
-    
+    public float maxPlayerDist = 5; 
     public bool showFloatingText = true;
     [TextArea(5, 10)]
     public string floatingText;
@@ -21,6 +21,8 @@ public class InteractableObject : MonoBehaviour
     private cakeslice.Outline outln; // outline attached to object
     private GameObject mainCamera = null;
     private HUD playerHUD;
+
+    private GameObject player;
     
 
     private void Start()
@@ -30,6 +32,7 @@ public class InteractableObject : MonoBehaviour
         outln = gameObject.AddComponent<cakeslice.Outline>();
         mainCamera = GameObject.FindWithTag("FPCamera");
         playerHUD = GameObject.FindWithTag("PlayerHUD").GetComponent<HUD>();
+        player = GameObject.FindWithTag("Player");
         outln.enabled = false;
 
         if(popUpText == "")
@@ -45,20 +48,29 @@ public class InteractableObject : MonoBehaviour
         if (showFloatingText)
         {
             floatingTextObject = Instantiate(floatingTextPrefab, gameObject.transform);
+            floatingTextObject.SetActive(false);
         }
     }
 
     void Update()
     {
-        if (showFloatingText && floatingTextObject)
-            floatingTextObject.transform.rotation = Quaternion.LookRotation(floatingTextObject.transform.position - mainCamera.transform.position);
-
+        if(showFloatingText && floatingTextObject){
+            if (PlayerInRange()){
+                floatingTextObject.SetActive(true);
+                floatingTextObject.transform.rotation = Quaternion.LookRotation(floatingTextObject.transform.position - mainCamera.transform.position);
+            }
+            else{
+                if(floatingTextObject.activeSelf)
+                    floatingTextObject.SetActive(false);
+            } 
+        }
+        
         Interact();
     }
 
     private void OnMouseOver()
     {
-        if (Vector3.Distance(GameObject.FindWithTag("Player").transform.position, transform.position) <= 5)
+        if (PlayerInRange())
         {
             Debug.Log("Mouse Entered");
                     outln.enabled = true;
@@ -92,5 +104,13 @@ public class InteractableObject : MonoBehaviour
     protected bool IsHovered()
     {
         return outln.enabled;
+    }
+
+    protected float DistToPlayer(){
+        return Vector3.Distance(player.transform.position, transform.position);
+    }
+
+    protected bool PlayerInRange(){
+        return DistToPlayer() <= maxPlayerDist;
     }
 }

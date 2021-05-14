@@ -69,11 +69,10 @@ public static class Inventory
     {
         if (!genDemoInventory)
         {
-            AddItem(new Item("Green Potion", itemSprites[104]));
-            AddItem(new Item("Red Potion", itemSprites[102]), 3);
-            AddItem(new Item("Branch", itemSprites[228]), 4);
+            AddItem(new Item("Wood", itemSprites[228]), 4);
             AddItem(new Item("Water", itemSprites[250]));
             AddItem(new Item("Coffee Beans", itemSprites[209]));
+            AddItem(new Item("Focusing Crystal", itemSprites[240]));
             genDemoInventory = true; 
         }
             

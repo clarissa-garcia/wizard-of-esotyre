@@ -5,12 +5,19 @@ using UnityEngine;
 public class RecipeNode
 {
     Dictionary<Item, RecipeNode> children;
-    
+
+    Item itemResult;
+
     // if stirring generates recipe
     bool finalStir;
     bool clockwise;
     int numStirs;
-    Item stirResult;
+
+    // if enchanting generates recipe
+    bool finalEnchant;
+    string enchantment;
+
+    int outsideChange = 0;
 
     public RecipeNode()
     {
@@ -46,7 +53,6 @@ public class RecipeNode
 
     public bool IsFinalStir(bool clockwise, int numStirs)
     {
-        Debug.Log(this.clockwise + ", " + this.numStirs);
         if (finalStir)
         {
             return (this.clockwise == clockwise && this.numStirs == numStirs);
@@ -54,13 +60,38 @@ public class RecipeNode
         return false;
     }
 
+    public void SetFinalEnchant(string enchantment)
+    {
+        finalEnchant = true;
+        this.enchantment = enchantment;
+    }
+
+    public bool IsFinalEnchant(string enchantment)
+    {
+        if (finalEnchant)
+        {
+            return (this.enchantment.Equals(enchantment));
+        }
+        return false;
+    }
+
     public Item GetResult()
     {
-        return stirResult;
+        if (outsideChange != 0)
+        {
+            Debug.Log("Performing Oustide Change");
+            RecipeController.PerformOutsideChange(outsideChange);
+        }
+        return itemResult;
     }
 
     public void SetResult(Item item)
     {
-        stirResult = item;
+        itemResult = item;
+    }
+
+    public void SetOutsideChange(int i)
+    {
+        outsideChange = i;
     }
 }

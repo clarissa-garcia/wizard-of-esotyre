@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class Workstation : MonoBehaviour
 {
 
-    private List<Item> cauldronInventory = new List<Item>();
     public static Sprite[] itemSprites;
     HUD playerHUD;
     private StirCounter stirCounter;
