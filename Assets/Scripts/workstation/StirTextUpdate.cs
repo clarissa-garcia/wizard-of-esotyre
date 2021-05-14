@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class StirTextUpdate : MonoBehaviour
 {
-	private Text stirs;
+	private TextMeshProUGUI stirs;
 	
     // Start is called before the first frame update
     void Start()
     {
-        stirs = GetComponent<Text>();
+        stirs = GetComponent<TextMeshProUGUI>();
 		stirs.text = "0";
     }
 
@@ -21,6 +22,7 @@ public class StirTextUpdate : MonoBehaviour
     }
 	
 	public void updateCount(string newNum){
+		//stirs.text = newNum;
 		stirs.text = newNum;
 	}
 }
