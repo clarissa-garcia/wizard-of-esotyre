@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class DirectionTextUpdate : MonoBehaviour
 {
-	private Text direction;
+	private TextMeshProUGUI direction;
 	
     // Start is called before the first frame update
     void Start()
     {
-        direction = GameObject.Find("Direction label").GetComponent<Text>();
+        direction = GameObject.Find("Direction label").GetComponent<TextMeshProUGUI>();
 		direction.text = "Clockwise";
     }
 
