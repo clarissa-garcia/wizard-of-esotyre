@@ -1496,16 +1496,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 247078468}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48628380b85959b48950f64b35629054, type: 3}
+  m_Script: {fileID: 11500000, guid: 35a6f99e93023004e9cbb3f0f9056601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxPlayerDist: 5
   showFloatingText: 1
   floatingText: Collect wood
-  showPopUp: 0
-  popUpText: 
+  showPopUp: 1
+  popUpText: Gather
   floatingTextPrefab: {fileID: 4901698716662738787, guid: ba4a6241d18a7a74ab46e67011e9cc7b, type: 3}
   unlimited: 1
+  ID: 2
 --- !u!4 &255211542 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4962982740961798, guid: e5e11fad68074894b9c22df9090f7f61, type: 3}
@@ -3246,7 +3247,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 593534310}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48628380b85959b48950f64b35629054, type: 3}
+  m_Script: {fileID: 11500000, guid: 35a6f99e93023004e9cbb3f0f9056601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxPlayerDist: 5
@@ -3256,6 +3257,7 @@ MonoBehaviour:
   popUpText: Collect Water
   floatingTextPrefab: {fileID: 4901698716662738787, guid: ba4a6241d18a7a74ab46e67011e9cc7b, type: 3}
   unlimited: 1
+  ID: 3
 --- !u!4 &603424727 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4657260702397742, guid: 356fa83e91052c344953b8081a7d6f57, type: 3}
@@ -6185,16 +6187,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1117374923}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48628380b85959b48950f64b35629054, type: 3}
+  m_Script: {fileID: 11500000, guid: 35a6f99e93023004e9cbb3f0f9056601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxPlayerDist: 5
   showFloatingText: 1
   floatingText: Collect Wood
-  showPopUp: 0
-  popUpText: 
+  showPopUp: 1
+  popUpText: Gather
   floatingTextPrefab: {fileID: 4901698716662738787, guid: ba4a6241d18a7a74ab46e67011e9cc7b, type: 3}
   unlimited: 1
+  ID: 2
 --- !u!4 &1119625922 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4951419489644836, guid: d80db7d6ccc56db47a7b33aeed287ace, type: 3}

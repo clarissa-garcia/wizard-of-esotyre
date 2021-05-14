@@ -20,12 +20,12 @@ public class InteractableObject : MonoBehaviour
     private GameObject floatingTextObject;
     private cakeslice.Outline outln; // outline attached to object
     private GameObject mainCamera = null;
-    private HUD playerHUD;
+    protected HUD playerHUD;
 
     private GameObject player;
     
 
-    private void Start()
+    protected virtual void Start()
     {
 
         gameObject.layer = 3;
@@ -53,7 +53,7 @@ public class InteractableObject : MonoBehaviour
         }
     }
 
-    void Update()
+    protected virtual void Update()
     {
         if(showFloatingText && floatingTextObject){
             if (PlayerInRange()){

@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!136 &3699310917465651128
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3698021274969658193}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 1.4486098
+  m_Height: 9.249614
+  m_Direction: 2
+  m_Center: {x: 0.0168105, y: 1.9821118, z: -0.0000023435462}
 --- !u!64 &3699310915436999966
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -76,7 +90,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3699310915989055823}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 080593947d32ac74ebe1fe735166c410, type: 3}
+  m_Script: {fileID: 11500000, guid: 862fdda0d8f148140a2d1a88574331dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   repairedBridge: {fileID: 3698021274969658193}
@@ -177,20 +191,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: 0
   eraseRenderer: 1
---- !u!136 &3699310917465651128
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3698021274969658193}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 1.4486098
-  m_Height: 9.249614
-  m_Direction: 2
-  m_Center: {x: 0.0168105, y: 1.9821118, z: -0.0000023435462}
 --- !u!1 &3699310917471270576
 GameObject:
   m_ObjectHideFlags: 0
