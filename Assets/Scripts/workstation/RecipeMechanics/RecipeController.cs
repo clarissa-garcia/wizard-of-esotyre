@@ -21,17 +21,18 @@ public static class RecipeController
             current = current.AddChild(new Item("Coffee Beans", itemSprites[209]));
             current.SetFinalStir(true, 2);
             current.SetResult(new Item("Coffee", itemSprites[212]));
-            current.SetOutsideChange(1);
 
             current = head.AddChild(new Item("Wood", itemSprites[228]));
             current = current.AddChild(new Item("Focusing Crystal", itemSprites[240]));
             current.SetFinalEnchant(" Ren Phe Tah");
             current.SetResult(new Item("Wand of Repair", itemSprites[72]));
+            current.SetOutsideChange(1);
 
             current = head.AddChild(new Item("Boots", itemSprites[94]));
             current = current.AddChild(new Item("Metal Block", itemSprites[229]));
             current.SetFinalEnchant(" Hed Lig Phe");
             current.SetResult(new Item("Jumping Boots", itemSprites[95]));
+            current.SetOutsideChange(2);
 
             current = head.AddChild(new Item("Coffee", itemSprites[212]));
             current = current.AddChild(new Item("Black Powder", itemSprites[259]));
@@ -45,6 +46,7 @@ public static class RecipeController
             current = current.AddChild(new Item("Gem of Power", itemSprites[165]));
             current.SetFinalEnchant(" Mul Rut Cha");
             current.SetResult(new Item("Wand of Destruction", itemSprites[73]));
+            current.SetOutsideChange(3);
 
 
             genDemoTree = true;
