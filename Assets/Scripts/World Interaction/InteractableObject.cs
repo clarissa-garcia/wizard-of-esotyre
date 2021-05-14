@@ -1,7 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+
 using TMPro;
+using UnityEngine;
+
 
 public class InteractableObject : MonoBehaviour
 {
@@ -48,6 +48,7 @@ public class InteractableObject : MonoBehaviour
         if (showFloatingText)
         {
             floatingTextObject = Instantiate(floatingTextPrefab, gameObject.transform);
+            floatingTextObject.GetComponentInChildren<TextMeshPro>().text = floatingText;
             floatingTextObject.SetActive(false);
         }
     }
