@@ -2199,12 +2199,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8353965b107651f4ca761a42279300ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxPlayerDist: 5
   showFloatingText: 0
   floatingText: 
   showPopUp: 1
   popUpText: '[E] Exit to Esotyre'
   floatingTextPrefab: {fileID: 0}
-  sceneName: 
+  sceneName: Esotyre
 --- !u!65 &767318988
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2844,12 +2845,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8353965b107651f4ca761a42279300ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxPlayerDist: 5
   showFloatingText: 0
   floatingText: 
   showPopUp: 1
   popUpText: '[E] Exit to Esotyre'
   floatingTextPrefab: {fileID: 0}
-  sceneName: 
+  sceneName: Esotyre
 --- !u!65 &890996025
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5198,6 +5200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8353965b107651f4ca761a42279300ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxPlayerDist: 5
   showFloatingText: 0
   floatingText: 
   showPopUp: 1
