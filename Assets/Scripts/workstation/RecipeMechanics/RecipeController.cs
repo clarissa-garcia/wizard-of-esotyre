@@ -8,6 +8,7 @@ public static class RecipeController
     public static RecipeNode head = new RecipeNode();
     private static bool genDemoTree = false;
     public static Sprite[] itemSprites =  Resources.LoadAll<Sprite>("ItemIcons");
+    public static RecipeNode current;
 
     public static void GenDemoTree()
     {
@@ -17,8 +18,10 @@ public static class RecipeController
             current = current.AddChild(new Item("Coffee Beans", itemSprites[209]));
             current.SetFinalStir(true, 2);
             current.SetResult(new Item("Coffee", itemSprites[212]));
+
             genDemoTree = true;
         }
+        current = head;
     }
 
     public static Item CheckRecipe(Dictionary<Item, int> items, bool clockwise, int numStirs)
@@ -48,5 +51,11 @@ public static class RecipeController
         {
             return null;
         }
+    }
+
+    public static Item CheckEnchant(Dictionary<Item, int> items, string enchantment)
+    {
+        GenDemoTree();
+        RecipeNode currentNode = head;
     }
 }

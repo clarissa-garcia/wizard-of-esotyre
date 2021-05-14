@@ -19,6 +19,6 @@ public class SpellWindow : MonoBehaviour
     }
 
     public void transferChosenSpell() {
-    
+        Debug.Log(currentFullSpellText.text);
     }
 }

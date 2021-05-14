@@ -5,12 +5,17 @@ using UnityEngine;
 public class RecipeNode
 {
     Dictionary<Item, RecipeNode> children;
+
     
     // if stirring generates recipe
     bool finalStir;
     bool clockwise;
     int numStirs;
     Item stirResult;
+
+    // if enchanting generates recipe
+    bool finalEnchant;
+    string enchantment;
 
     public RecipeNode()
     {
@@ -46,10 +51,24 @@ public class RecipeNode
 
     public bool IsFinalStir(bool clockwise, int numStirs)
     {
-        Debug.Log(this.clockwise + ", " + this.numStirs);
         if (finalStir)
         {
             return (this.clockwise == clockwise && this.numStirs == numStirs);
+        }
+        return false;
+    }
+
+    public void SetEnchant(string enchantment)
+    {
+        finalEnchant = true;
+        this.enchantment = enchantment;
+    }
+
+    public bool IsFinalEnchant(string enchantment)
+    {
+        if (finalEnchant)
+        {
+            return (this.enchantment.Equals(enchantment));
         }
         return false;
     }
