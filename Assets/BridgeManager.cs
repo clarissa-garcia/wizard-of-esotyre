@@ -10,7 +10,7 @@ public class BridgeManager : MonoBehaviour
     public GameObject repairedBridge;
     public GameObject brokenBridge; 
 
-    void Start()
+    void Awake()
     {
         GameManager.OnBridgeRepair += OnBridgeRepair;
         if(GameManager.Instance.BridgeRepaired()){
@@ -26,5 +26,10 @@ public class BridgeManager : MonoBehaviour
     public void OnBridgeRepair(){
         repairedBridge.SetActive(true);
         brokenBridge.SetActive(false);
+    }
+
+    void OnDestroy()
+    {
+        GameManager.OnBridgeRepair -= OnBridgeRepair;
     }
 }
