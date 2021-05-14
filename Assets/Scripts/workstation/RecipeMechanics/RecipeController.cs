@@ -9,6 +9,7 @@ public static class RecipeController
     private static bool genDemoTree = false;
     public static Sprite[] itemSprites =  Resources.LoadAll<Sprite>("ItemIcons");
     public static RecipeNode current;
+    public static GameManager manager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
     public static void GenDemoTree()
     {
@@ -18,6 +19,7 @@ public static class RecipeController
             current = current.AddChild(new Item("Coffee Beans", itemSprites[209]));
             current.SetFinalStir(true, 2);
             current.SetResult(new Item("Coffee", itemSprites[212]));
+            current.SetOutsideChange(1);
 
             current = head.AddChild(new Item("Wood", itemSprites[228]));
             current = current.AddChild(new Item("Focusing Crystal", itemSprites[240]));
@@ -103,6 +105,25 @@ public static class RecipeController
         else
         {
             return null;
+        }
+    }
+
+    public static void PerformOutsideChange(int i)
+    {
+        switch(i)
+        {
+            case 1:
+                manager.repair = true;
+                break;
+            case 2:
+                manager.jumpBoost = true;
+                break;
+            case 3:
+                manager.repair = false;
+                manager.destroy = true;
+                break;
+            default:
+                break;
         }
     }
 }

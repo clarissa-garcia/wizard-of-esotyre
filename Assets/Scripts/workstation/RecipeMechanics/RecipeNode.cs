@@ -17,6 +17,8 @@ public class RecipeNode
     bool finalEnchant;
     string enchantment;
 
+    int outsideChange = 0;
+
     public RecipeNode()
     {
         children = new Dictionary<Item, RecipeNode>();
@@ -75,11 +77,21 @@ public class RecipeNode
 
     public Item GetResult()
     {
+        if (outsideChange != 0)
+        {
+            Debug.Log("Performing Oustide Change");
+            RecipeController.PerformOutsideChange(outsideChange);
+        }
         return itemResult;
     }
 
     public void SetResult(Item item)
     {
         itemResult = item;
+    }
+
+    public void SetOutsideChange(int i)
+    {
+        outsideChange = i;
     }
 }

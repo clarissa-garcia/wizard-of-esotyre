@@ -24,6 +24,11 @@ public class GameManager : MonoBehaviour
     public static event OnBridgeRepairHandler OnBridgeRepair;
     public GameState gameState { get; private set; }
 
+    [Header("Interaction Settings")]
+    public bool repair = false;
+    public bool destroy = false;
+    public bool jumpBoost = false;
+
     private static bool bridgeRepaired = false; 
 
     private void Awake()
