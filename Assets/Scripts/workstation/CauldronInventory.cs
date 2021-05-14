@@ -4,41 +4,36 @@ using UnityEngine;
 
 public static class CauldronInventory
 {
-    private static Dictionary<Item, int> items = new Dictionary<Item, int>(7); // Dictionary with <Item, number in cauldron>. 
+    private static List<Item> items = new List<Item>(); // Dictionary with <Item, number in cauldron>. 
 
-    public static Dictionary<Item, int> GetAll()
+    public static List<Item> GetAll()
     {
-        return items;
+        List<Item> result = items;
+        items = new List<Item>();
+        return result;
     }
 
-    public static int AddItem(Item item)
+    public static void AddItem(Item item)
     {
-        return AddItem(item, 1);
+        AddItem(item, 1);
     }
 
-    public static int AddItem(Item item, int n)
+    public static void AddItem(Item item, int n)
     {
-        if (items.Count >= 7) // no room in inventory 
-            return 0;
-        else if (ContainsItem(item) != null)// item in inventory already
-        {
-            item = ContainsItem(item);
-            items[item] += n;
+        if (!ContainsItem(item)) {
+            items.Add(item);
         }
-        else // item not in inventory, add it
-            items.Add(item, n);
-
-        return items[item];
+        return;
     }
 
-    private static Item ContainsItem(Item item)
+    private static bool ContainsItem(Item item)
     {
-        foreach (KeyValuePair<Item, int> entry in items)
+        foreach (Item entry in items)
         {
-            if (entry.Key.name == item.name)
-                return entry.Key;
+            if (entry.name == item.name)
+                return true;
         }
 
-        return null;
+        return false;
     }
 }
