@@ -41,6 +41,13 @@ public class RecipeNode
 
     public bool HasChild(Item item)
     {
+        Debug.Log("LOOKING FOR " + item.name + " IN DICTIONARY OF SIZE " + children.Count);
+        foreach (KeyValuePair<Item, RecipeNode> entry in children)
+        {
+            Debug.Log(entry.Key.name);
+            Debug.Log(item.Equals(entry.Key));
+        }
+        Debug.Log("DONE LISTING");
         return children.ContainsKey(item);
     }
 

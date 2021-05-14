@@ -69,10 +69,13 @@ public static class Inventory
     {
         if (!genDemoInventory)
         {
-            AddItem(new Item("Wood", itemSprites[228]), 4);
-            AddItem(new Item("Water", itemSprites[250]));
-            AddItem(new Item("Coffee Beans", itemSprites[209]));
-            AddItem(new Item("Focusing Crystal", itemSprites[240]));
+            AddItem(new Item("Coffee", itemSprites[212]));
+            AddItem(new Item("Black Powder", itemSprites[259]));
+            AddItem(new Item("Holy Fire", itemSprites[9]));
+            AddItem(new Item("Chili", itemSprites[193]));
+            AddItem(new Item("Gem of Power", itemSprites[165]));
+            AddItem(new Item("Wand of Repair", itemSprites[72]));
+
             genDemoInventory = true; 
         }
             
