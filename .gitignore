@@ -94,6 +94,9 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
-Assets/SimplePixelUI/
 
-Assets/BuildReport/
+Assets/Plugins/Infinity Code/
+
+Assets/Plugins/Infinity Code.meta
+
+Assets/Plugins/Grabbit/
