@@ -9,6 +9,4 @@ public enum ComponentType{
 [System.Serializable]
 public abstract class RecipeComponent : ScriptableObject{
     public ComponentType type;
-
-    
 }

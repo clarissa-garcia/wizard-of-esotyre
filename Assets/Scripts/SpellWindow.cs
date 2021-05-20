@@ -27,7 +27,7 @@ public class SpellWindow : MonoBehaviour
         Item returnItem = RecipeController.CheckEnchant(CauldronInventory.GetAll(), enchant);
         Debug.Log(returnItem.name);
 
-        Inventory.AddItem(returnItem);
+        //Inventory.AddItem(returnItem);
         playerHUD.DrawInventory();
         circle.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
         playerHUD.DrawInventory();

@@ -37,7 +37,7 @@ public class HUD : MonoBehaviour
 
         if (loadDemoInventory)
         {
-            Inventory.GenDemoInventory();
+            //Inventory.GenDemoInventory();
             loadDemoInventory = false;
         }
         QuestManager.OnQuestChange += UpdateQuestText;
@@ -52,11 +52,15 @@ public class HUD : MonoBehaviour
     {
         int i = 0;
 
-        foreach (KeyValuePair<Item, int> entry in Inventory.GetAll())
+        // Iterate through each item instance
+        foreach(ItemInstance itemInstance in PlayerInventory.Instance.inventory)
         {
-            inventorySlots[i].SetIconAndCount(entry.Key.GetSprite(), entry.Value);
-            inventorySlots[i].setItem(entry.Key);
-            i++;
+            if(itemInstance.item != null){
+                inventorySlots[i].SetIconAndCount(itemInstance.item.icon, itemInstance.amount);
+                inventorySlots[i].setItem(itemInstance.item);
+                i++;
+            }
+            else break;
         }
 
         while(i < 7)

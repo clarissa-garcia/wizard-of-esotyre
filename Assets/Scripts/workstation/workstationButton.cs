@@ -25,23 +25,23 @@ public class workstationButton : MonoBehaviour
         {
             if (gameObject.GetComponent<ItemSlot>().itemHeld != null)
             {
-                Item itemHeld = gameObject.GetComponent<ItemSlot>().itemHeld;
-                int itemHeldNum = Inventory.getItemCount(itemHeld);
-                if (itemHeldNum == 0) {
-                    return;
-                }
-                Debug.Log("Item to be removed is: " + itemHeld.name);
+                // Item itemHeld = gameObject.GetComponent<ItemSlot>().itemHeld;
+                // //int itemHeldNum = Inventory.getItemCount(itemHeld);
+                // if (itemHeldNum == 0) {
+                //     return;
+                // }
+                // Debug.Log("Item to be removed is: " + itemHeld.name);
 
-                Inventory.RemoveItem(itemHeld);
-                 // Add item deducted to the caulron
-                CauldronInventory.AddItem(itemHeld);
-                //Access the item slot to update the inventory count
-                ItemSlot currentItemSlot = GetComponent<ItemSlot>();
-                currentItemSlot.UpdateItemCount(itemHeldNum - 1);
-                playerHUD = GameObject.FindWithTag("PlayerHUD").GetComponent<HUD>();
-                playerHUD.DrawInventory();
+                // //Inventory.RemoveItem(itemHeld);
+                //  // Add item deducted to the caulron
+                // CauldronInventory.AddItem(itemHeld);
+                // //Access the item slot to update the inventory count
+                // ItemSlot currentItemSlot = GetComponent<ItemSlot>();
+                // currentItemSlot.UpdateItemCount(itemHeldNum - 1);
+                // playerHUD = GameObject.FindWithTag("PlayerHUD").GetComponent<HUD>();
+                // playerHUD.DrawInventory();
 
-                circle.GetComponent<SpriteRenderer>().color = Random.ColorHSV();
+                // circle.GetComponent<SpriteRenderer>().color = Random.ColorHSV();
 
 
 

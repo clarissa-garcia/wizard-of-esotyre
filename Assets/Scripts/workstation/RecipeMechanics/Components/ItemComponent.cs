@@ -9,5 +9,4 @@ public class ItemComponent : RecipeComponent {
     }
 
     public Item item;
-    public int amount;
 }

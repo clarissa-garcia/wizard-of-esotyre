@@ -32,49 +32,42 @@ public abstract class APolymorphicPropertyDrawer<TScriptableObject, TPropertyDra
     {
         TryInitPropertyMappings();
  
-        // Using BeginProperty / EndProperty on the parent property means that
-        // prefab override logic works on the entire property.
-        EditorGUI.BeginProperty(position, label, property);
- 
         TPropertyDrawer drawer = GetPropertyDrawer(property);
+        EditorGUILayout.PropertyField(property, null, false);
         if (drawer != null)
         {
             SerializedObject propertyObj = GetSerializedObject(property);
             drawer.OnGUI(position, propertyObj, label);
         }
-        else
-        {
-            EditorGUI.LabelField(position, "Unsupported type");
-        }
- 
-        EditorGUI.EndProperty();
     }
  
     public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
     {
         TryInitPropertyMappings();
- 
-        SerializedObject propertyObj = GetSerializedObject(property);
-        TPropertyDrawer drawer = GetPropertyDrawer(property);
-        if (drawer != null)
-        {
+
+        SerializedObject tmp = GetSerializedObject(property); 
+        if(tmp != null){
+            SerializedObject propertyObj = GetSerializedObject(property);
+            TPropertyDrawer drawer = GetPropertyDrawer(property);
             return drawer.GetPropertyHeight(propertyObj, label);
         }
- 
         return EditorGUIUtility.singleLineHeight;
     }
  
     private SerializedObject GetSerializedObject(SerializedProperty property)
     {
+        if(property.objectReferenceValue == null) return null; 
         SerializedObject newObj = new SerializedObject(property.objectReferenceValue);
         return newObj;
     }
  
     private TPropertyDrawer GetPropertyDrawer(SerializedProperty property)
     {
+        if(property == null || property.objectReferenceValue == null) return null; 
+
         Type propertyType = property.objectReferenceValue.GetType();
         m_TypeToPropertyDrawerMappings.TryGetValue(propertyType, out var drawer);
- 
+        
         return drawer;
     }
 }

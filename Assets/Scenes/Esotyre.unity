@@ -470,7 +470,7 @@ MonoBehaviour:
   popUpText: Click to Pickup
   floatingTextPrefab: {fileID: 0}
   unlimited: 1
-  ID: 15
+  item: {fileID: 0}
 --- !u!4 &77217674 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4428525224070040, guid: fe8147825b813cf46b4ef685a3ea56a8, type: 3}
@@ -1319,7 +1319,7 @@ MonoBehaviour:
   popUpText: Click to Pickup
   floatingTextPrefab: {fileID: 0}
   unlimited: 1
-  ID: 15
+  item: {fileID: 0}
 --- !u!4 &169799583 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4803593490609036, guid: d9b9ef0cf9aa8754d8d0369ab8794095, type: 3}
@@ -1678,7 +1678,7 @@ MonoBehaviour:
   popUpText: Gather
   floatingTextPrefab: {fileID: 4901698716662738787, guid: ba4a6241d18a7a74ab46e67011e9cc7b, type: 3}
   unlimited: 1
-  ID: 2
+  item: {fileID: 11400000, guid: 7d10355263dbbdb40ba695c15d2a80c1, type: 2}
 --- !u!4 &255211542 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4962982740961798, guid: e5e11fad68074894b9c22df9090f7f61, type: 3}
@@ -3476,7 +3476,7 @@ MonoBehaviour:
   popUpText: Collect Water
   floatingTextPrefab: {fileID: 4901698716662738787, guid: ba4a6241d18a7a74ab46e67011e9cc7b, type: 3}
   unlimited: 1
-  ID: 3
+  item: {fileID: 0}
 --- !u!1001 &602746166
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3558,7 +3558,7 @@ MonoBehaviour:
   popUpText: Click to Pickup
   floatingTextPrefab: {fileID: 0}
   unlimited: 1
-  ID: 15
+  item: {fileID: 0}
 --- !u!4 &603424727 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4657260702397742, guid: 356fa83e91052c344953b8081a7d6f57, type: 3}
@@ -4279,7 +4279,7 @@ MonoBehaviour:
   popUpText: Pickup boots
   floatingTextPrefab: {fileID: 4901698716662738787, guid: ba4a6241d18a7a74ab46e67011e9cc7b, type: 3}
   unlimited: 0
-  ID: 7
+  item: {fileID: 0}
 --- !u!64 &736544733
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5005,7 +5005,7 @@ MonoBehaviour:
   popUpText: Click to Pickup
   floatingTextPrefab: {fileID: 0}
   unlimited: 1
-  ID: 15
+  item: {fileID: 0}
 --- !u!4 &821823966 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4704772494426858, guid: d68870cf1b8968f49b16b4eaebdce109, type: 3}
@@ -5640,7 +5640,7 @@ MonoBehaviour:
   popUpText: Click to Pickup
   floatingTextPrefab: {fileID: 0}
   unlimited: 1
-  ID: 15
+  item: {fileID: 0}
 --- !u!1001 &889307077
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6120,7 +6120,7 @@ MonoBehaviour:
   popUpText: Click to Pickup
   floatingTextPrefab: {fileID: 0}
   unlimited: 1
-  ID: 15
+  item: {fileID: 0}
 --- !u!4 &995991013 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4704772494426858, guid: d68870cf1b8968f49b16b4eaebdce109, type: 3}
@@ -6219,7 +6219,7 @@ MonoBehaviour:
   popUpText: Pickup boots
   floatingTextPrefab: {fileID: 4901698716662738787, guid: ba4a6241d18a7a74ab46e67011e9cc7b, type: 3}
   unlimited: 0
-  ID: 7
+  item: {fileID: 0}
 --- !u!64 &1012243149
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7069,7 +7069,7 @@ MonoBehaviour:
   popUpText: Gather
   floatingTextPrefab: {fileID: 4901698716662738787, guid: ba4a6241d18a7a74ab46e67011e9cc7b, type: 3}
   unlimited: 1
-  ID: 2
+  item: {fileID: 0}
 --- !u!4 &1119625922 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4951419489644836, guid: d80db7d6ccc56db47a7b33aeed287ace, type: 3}
@@ -7782,7 +7782,7 @@ MonoBehaviour:
   popUpText: Click to Pickup
   floatingTextPrefab: {fileID: 0}
   unlimited: 1
-  ID: 15
+  item: {fileID: 0}
 --- !u!1001 &1196845219
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8654,7 +8654,7 @@ MonoBehaviour:
   popUpText: Click to Pickup
   floatingTextPrefab: {fileID: 0}
   unlimited: 1
-  ID: 15
+  item: {fileID: 0}
 --- !u!1001 &1374497296
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9085,7 +9085,7 @@ MonoBehaviour:
   popUpText: Click to Pickup
   floatingTextPrefab: {fileID: 0}
   unlimited: 1
-  ID: 15
+  item: {fileID: 0}
 --- !u!1001 &1451645356
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9926,7 +9926,7 @@ MonoBehaviour:
   popUpText: Click to Pickup
   floatingTextPrefab: {fileID: 0}
   unlimited: 1
-  ID: 15
+  item: {fileID: 0}
 --- !u!1001 &1567018114
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11115,7 +11115,7 @@ MonoBehaviour:
   popUpText: Click to Pickup
   floatingTextPrefab: {fileID: 0}
   unlimited: 1
-  ID: 15
+  item: {fileID: 0}
 --- !u!1001 &1822507410
 PrefabInstance:
   m_ObjectHideFlags: 0

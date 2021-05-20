@@ -8,11 +8,11 @@ public class GatherableObject : InteractableObject
     public bool unlimited;
     
     [Tooltip("Item this will generate when player interacts")]
-    public int ID; 
+    public Item item; 
 
     protected override void Start() {
         base.Start();
-        floatingText = Inventory.CreateItem(ID).name;
+        //floatingText = Inventory.CreateItem(ID).name;
     }
 
     protected override void Update()
@@ -21,7 +21,7 @@ public class GatherableObject : InteractableObject
     }
 
     private void OnMouseDown() {
-        Inventory.AddItem(Inventory.CreateItem(ID));
+        PlayerInventory.Instance.AddItem(item);
         playerHUD.DrawInventory();
     }
 
