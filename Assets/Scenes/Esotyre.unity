@@ -3476,7 +3476,7 @@ MonoBehaviour:
   popUpText: Collect Water
   floatingTextPrefab: {fileID: 4901698716662738787, guid: ba4a6241d18a7a74ab46e67011e9cc7b, type: 3}
   unlimited: 1
-  item: {fileID: 0}
+  item: {fileID: 11400000, guid: 7cd83179c62253b4ea896b58eb692a6f, type: 2}
 --- !u!1001 &602746166
 PrefabInstance:
   m_ObjectHideFlags: 0

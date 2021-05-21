@@ -2,71 +2,135 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using System;
 
 [CustomEditor(typeof(Recipe))]
 public class RecipeEditor : Editor 
 {
-    SerializedProperty componentsProp; 
-    SerializedProperty orderedProp;
-    SerializedProperty amountProp;
 
-    ComponentType compToAddType = ComponentType.ITEM;
+    //ComponentType compToAddType = ComponentType.ITEM;
 
     private List<bool> componentFoldouts; 
 
     Recipe recipe; 
+    List<RecipeComponent> components; 
+    int selectedIndex = 0; 
 
     private void OnEnable() {
-        componentsProp = serializedObject.FindProperty("componentList");
+        recipe = (Recipe) target; 
+        if(recipe.componentList != null){
+            components = recipe.componentList;
+            componentFoldouts = new List<bool>(components.Capacity);
 
-        componentFoldouts = new List<bool>(componentsProp.arraySize);
-
-        for(int i = 0; i < componentFoldouts.Capacity; i++){
-            componentFoldouts.Add(false);
+            for(int i = 0; i < componentFoldouts.Capacity; i++){
+                componentFoldouts.Add(false);
+            }
         }
+            
+        // componentsProp = serializedObject.FindProperty("componentList");
+
+        
     }
 
     
     public override void OnInspectorGUI()
     {
-        recipe = (Recipe) target; 
-        serializedObject.Update();  // Update serialized object
-
+        components = recipe.componentList;
         recipe.result = (Item)EditorGUILayout.ObjectField("Result Item:", recipe.result, typeof(Item), false);
         recipe.amount = EditorGUILayout.IntField("Items created:", recipe.amount);
         recipe.isOrdered = EditorGUILayout.Toggle("Ordered?", recipe.isOrdered); // Ordered Toggle
-        componentsProp.arraySize = EditorGUILayout.IntField("Size", componentsProp.arraySize); // Change Array size
 
-        
         UpdateFoldoutSize(); // Keep the number of foldouts the same as the number of elements
+        
+        if(components != null){
+            for(int i = 0; i < recipe.componentList.Count; i++){
+                if(components[i] != null){
+                    EditorGUILayout.BeginHorizontal();
 
-        for(int i = 0; i < componentsProp.arraySize; i++){
-            SerializedProperty _component = componentsProp.GetArrayElementAtIndex(i);
 
-            componentFoldouts[i] = EditorGUILayout.BeginFoldoutHeaderGroup(componentFoldouts[i], "Component " + i);
-            // Only show property on foldout
-            if(componentFoldouts[i]){
-                EditorGUI.PropertyField(new Rect(EditorGUI.indentLevel, i * 100, 100, 100), _component);
+                    // Buttons
+                    EditorGUILayout.BeginVertical(GUILayout.MaxWidth(50));
+                    // Delete Component 
+                    if(GUILayout.Button("DEL", GUILayout.Width(50))) {
+                        DeleteComponent(i);
+                        i++; 
+                        if(i >= recipe.componentList.Count){
+                            EditorGUILayout.EndVertical();
+                            EditorGUILayout.EndHorizontal();
+                            return; 
+                        }
+                    }; 
+                    EditorGUILayout.BeginHorizontal();
+                    if(GUILayout.Button("↑", GUILayout.Width(25))) ShiftComponentUp(i);
+                    if(GUILayout.Button("↓", GUILayout.Width(25))) ShiftComponentDown(i);
+                    EditorGUILayout.EndHorizontal();
+                    EditorGUILayout.EndVertical();
+
+
+                    GUILayout.Space(10);    // Add space between buttons and dropdown
+
+
+                    EditorGUILayout.BeginVertical(); 
+                    componentFoldouts[i] = EditorGUILayout.BeginFoldoutHeaderGroup(componentFoldouts[i], "Component " + i + " (" + components[i].GetType() + ")");
+                    if(componentFoldouts[i]){
+                        if(components[i] is Item){
+                            EditorGUILayout.BeginHorizontal();
+                            components[i] = (RecipeComponent)EditorGUILayout.ObjectField("Item", (Item)components[i], typeof(Item), false); 
+                            EditorGUILayout.EndHorizontal();
+                        }
+                        if(components[i] is Enchantment){
+                            Enchantment _enchatnment = (Enchantment)components[i]; 
+                            
+                            EditorGUILayout.BeginHorizontal(); 
+                            EditorGUILayout.BeginVertical(); 
+                            components[i] = (RecipeComponent)EditorGUILayout.ObjectField("Enchantment", (Enchantment)components[i], typeof(Enchantment), false); 
+                            components[i].ShowComponent();
+                            EditorGUILayout.EndVertical();
+                            EditorGUILayout.EndHorizontal();
+                        }
+                    }
+                    EditorGUILayout.EndVertical();
+                    EditorGUILayout.EndFoldoutHeaderGroup();
+                    EditorGUILayout.EndHorizontal();
+                    
+                } 
             }
-            EditorGUILayout.EndFoldoutHeaderGroup(); // Close foldout group
         }
 
         // Add a new component to the recipe
-        EditorGUILayout.BeginHorizontal();
-
-        compToAddType = (ComponentType)EditorGUILayout.EnumPopup(compToAddType);    // Type Dropdown
-        if(GUILayout.Button("Add Component")){                                      // Add new component
-            
-            RecipeComponent[] temp = new RecipeComponent[componentsProp.arraySize + 1];
-            recipe.componentList.CopyTo(temp, 0);
-            recipe.componentList = temp;
-            recipe.componentList[recipe.componentList.Length - 1] = CreateNewRecipeComponent(compToAddType);
-            serializedObject.Update();
-        }
-        EditorGUILayout.EndHorizontal();
         
+        selectedIndex = EditorGUILayout.Popup(selectedIndex, new string [] {"Add component",
+                                                                            "Item",
+                                                                            "Stir",
+                                                                            "Enchantment"});
+        CreateNewRecipeComponent(selectedIndex);
+        selectedIndex = 0; 
+        components = recipe.componentList;
+    }
 
-        serializedObject.ApplyModifiedProperties();
+    private void DeleteComponent(int i)
+    {
+        components.RemoveAt(i);
+        UpdateFoldoutSize(); 
+    }
+
+    private void ShiftComponentDown(int i){
+        if(i == components.Count - 1) return;
+        
+        Swap2(components, i, i+1);
+        Swap2(componentFoldouts, i, i+1);
+    }
+
+    private void ShiftComponentUp(int i){
+        if(i == 0) return;
+        Swap2(components, i, i-1);
+        Swap2(componentFoldouts, i, i-1);
+    }
+
+    private void Swap2<T>(List<T> ls, int i, int j){
+        var tmp = ls[i];
+        ls[i] = ls[j];
+        ls[j] = tmp; 
     }
 
     /// <summary>
@@ -74,56 +138,60 @@ public class RecipeEditor : Editor
     /// </summary>
     /// <param name="type"> Component Type to add </param>
     /// <returns> New RecipeComponent scriptable object </returns>
-    private RecipeComponent CreateNewRecipeComponent(ComponentType type){
+    private void CreateNewRecipeComponent(int type){
         RecipeComponent newComponent = null;
 
         switch(type){
-            case ComponentType.ITEM:
-                newComponent = ScriptableObject.CreateInstance<ItemComponent>(); 
+            case 1:
+                newComponent = ScriptableObject.CreateInstance<Item>(); 
                 break; 
-            case ComponentType.STIR:
-                newComponent = ScriptableObject.CreateInstance<StirComponent>(); 
+            case 2:
+                newComponent = ScriptableObject.CreateInstance<Stir>(); 
                 break; 
-            case ComponentType.ENCHANTMENT:
-                newComponent = ScriptableObject.CreateInstance<EnchantmentComponent>(); 
+            case 3:
+                newComponent = ScriptableObject.CreateInstance<Enchantment>(); 
                 break; 
+            default:
+                return; 
         }
 
-        if(newComponent != null){
-            string path = "Assets/Resources/Recipes/Components/New" + newComponent.GetType(); 
+        components.Add(newComponent);
 
-            // Check if name doesn't already exist
-            if(AssetDatabase.LoadAssetAtPath<RecipeComponent>(path + ".asset") != null){
-                int i = 1;;
+        // if(newComponent != null){
+        //     string path = "Assets/Resources/Recipes/Components/New" + newComponent.GetType(); 
 
-                // Change path until a valid number is found
-                while(AssetDatabase.LoadAssetAtPath<RecipeComponent>(path + " " + i + ".asset") != null)
-                    i++; 
+        //     // Check if name doesn't already exist
+        //     if(AssetDatabase.LoadAssetAtPath<RecipeComponent>(path + ".asset") != null){
+        //         int i = 1;;
 
-                path += " " + i + ".asset"; // update path with number
-            }
-            else
-                path += ".asset";
+        //         // Change path until a valid number is found
+        //         while(AssetDatabase.LoadAssetAtPath<RecipeComponent>(path + " " + i + ".asset") != null)
+        //             i++; 
 
-            AssetDatabase.CreateAsset(newComponent, path); // create asset
-            AssetDatabase.SaveAssets(); // save asset
-        }
+        //         path += " " + i + ".asset"; // update path with number
+        //     }
+        //     else
+        //         path += ".asset";
 
-        return newComponent; 
+        //     AssetDatabase.CreateAsset(newComponent, path); // create asset
+        //     AssetDatabase.SaveAssets(); // save asset
+        // }
+
+        //return newComponent; 
     }
     
     /// <summary>
     /// Updates the number of foldout booleans in the FoldoutCount to match the number of elements displayed.
     /// </summary>
     private void UpdateFoldoutSize(){
-        if(componentsProp.arraySize == 0){
+        if(components.Count == 0){
             componentFoldouts.Clear();
         }
-        else if(componentsProp.arraySize < componentFoldouts.Count){
-            componentFoldouts.RemoveRange(componentsProp.arraySize -1, componentFoldouts.Count - componentsProp.arraySize);
+        else if(components.Count < componentFoldouts.Count){
+            componentFoldouts.RemoveRange(components.Count -1, componentFoldouts.Count - components.Count);
         }
-        else if(componentsProp.arraySize > componentFoldouts.Count){
-            while(componentsProp.arraySize != componentFoldouts.Count)
+        else if(components.Count > componentFoldouts.Count){
+            while(components.Count != componentFoldouts.Count)
                 componentFoldouts.Add(false);
         }
     }

@@ -9,5 +9,9 @@ public class Recipe : ScriptableObject {
     public Item result = null;
 
     public int amount = 1; 
-    public RecipeComponent[] componentList; 
+    public List<RecipeComponent> componentList; 
+
+    private void OnEnable() {
+        componentList = new List<RecipeComponent>(3);
+    }
 }
