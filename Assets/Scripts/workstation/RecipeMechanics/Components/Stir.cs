@@ -32,6 +32,6 @@ public class Stir : ScriptableObject, RecipeComponent
 
         EditorGUILayout.EndHorizontal(); 
 
-        return this; 
+        return null; 
     }
 }

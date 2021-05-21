@@ -88,6 +88,9 @@ public class RecipeEditor : Editor
                             EditorGUILayout.EndVertical();
                             EditorGUILayout.EndHorizontal();
                         }
+                        if(components[i] is Stir){
+                            components[i].ShowComponent();
+                        }
                     }
                     EditorGUILayout.EndVertical();
                     EditorGUILayout.EndFoldoutHeaderGroup();
