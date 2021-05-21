@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0ad9c6adaef9744b8a5ae5521e9f053, type: 3}
-  m_Name: Recipe
+  m_Name: Coffee Recipe
   m_EditorClassIdentifier: 
   isOrdered: 1
   result: {fileID: 0}

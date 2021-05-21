@@ -8,9 +8,8 @@ public enum StirDirection{
     COUNTERCLOCKWISE, 
 }
 
-[System.Serializable]
-[CreateAssetMenu(fileName = "Stir", menuName = "Recipe System/Component/Stir", order = 0)]
-public class Stir : ScriptableObject, RecipeComponent
+
+public class Stir :  RecipeComponent
 {
     public StirDirection direction = StirDirection.CLOCKWISE;
 
@@ -18,19 +17,19 @@ public class Stir : ScriptableObject, RecipeComponent
 
     public RecipeComponent ShowComponent()
     {
-        EditorGUILayout.BeginHorizontal();
-
+        EditorGUILayout.BeginVertical();
         direction = (StirDirection)EditorGUILayout.EnumPopup(direction); 
 
-        //count = EditorGUILayout.IntField("Count:", count);
 
+        EditorGUILayout.BeginHorizontal();
+        count = EditorGUILayout.IntField("Count:", count);
         if(GUILayout.Button("-", GUILayout.Width(20)))
             count--; 
         if(GUILayout.Button("+",  GUILayout.Width(20)))
             count++; 
         if(count < 1) count = 1; 
-
-        EditorGUILayout.EndHorizontal(); 
+        EditorGUILayout.EndHorizontal();
+        EditorGUILayout.EndVertical(); 
 
         return null; 
     }

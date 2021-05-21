@@ -149,7 +149,7 @@ public class RecipeEditor : Editor
                 newComponent = ScriptableObject.CreateInstance<Item>(); 
                 break; 
             case 2:
-                newComponent = ScriptableObject.CreateInstance<Stir>(); 
+                newComponent = new Stir(); 
                 break; 
             case 3:
                 newComponent = ScriptableObject.CreateInstance<Enchantment>(); 

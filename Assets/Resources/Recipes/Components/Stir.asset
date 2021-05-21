@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1811a8383c9ed4a438f437e7a1689c78, type: 3}
   m_Name: Stir
   m_EditorClassIdentifier: 
-  direction: 0
+  direction: 1
   count: 1
