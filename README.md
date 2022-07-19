@@ -1,6 +1,6 @@
 # The Wizard of Esotyre
 
-This repo was a mirror from a LoboGit repo. It is phase 2 of The Wizard of Esotyre, a final Unity class project for advanced game development in my senior year at the University of New Mexico. 
+This repo was a mirror from a LoboGit repo dated 3/25/2021. It is phase 2 of The Wizard of Esotyre, a final Unity class project for advanced game development in my senior year at the University of New Mexico. 
 
 ## Overview
 The Wizard of Esotyre is a first-person puzzle game in which the player lives in a wizard’s tower in the Forest of Esotyre. Each day, the player receives a list of tasks under their door and must complete the tasks before the sun sets. The tasks require the player to create magical potions and enchantments from resources in their storage cabinet or in the forest. 
